@@ -32,6 +32,7 @@ const rows = TTI.map((t, i) => {
   if (!(sc >= 40 && sc <= 99)) errs.push(`${t.key}띠 점수 ${v.score} (40~99)`);
   scores.push(sc);
   if (!v.total || len(v.total) > 34) errs.push(`${t.key}띠 총운 길이 ${len(v.total)}자 (1~34자)`);
+  if (!v.summary || len(v.summary) < 30 || len(v.summary) > 75) errs.push(`${t.key}띠 총평 길이 ${len(v.summary)}자 (30~75자, 한두 문장)`);
   if (!v.word || len(v.word) > 4) errs.push(`${t.key}띠 키워드 '${v.word}' (1~4자)`);
   const years = yearsFor(i, base).map((y) => {
     const txt = v.years?.[y];
@@ -39,8 +40,8 @@ const rows = TTI.map((t, i) => {
     else if (len(txt) > 48) errs.push(`${t.key}띠 ${y}년생 ${len(txt)}자 (48자 이하)`);
     return { year: y, text: txt || "" };
   });
-  for (const s of [v.total, v.word, ...years.map((y) => y.text)]) if (BANNED.test(s || "")) errs.push(`${t.key}띠 금지 표현: "${s}"`);
-  return { ...t, idx: i, score: sc, stars: stars(sc), total: v.total, word: v.word, years };
+  for (const s of [v.total, v.summary, v.word, ...years.map((y) => y.text)]) if (BANNED.test(s || "")) errs.push(`${t.key}띠 금지 표현: "${s}"`);
+  return { ...t, idx: i, score: sc, stars: stars(sc), total: v.total, summary: v.summary, word: v.word, years };
 });
 if (new Set(scores).size !== scores.length) errs.push("띠 점수가 겹침 (순위를 매길 수 있게 모두 달라야 함)");
 if (errs.length) { console.error("검사 실패:\n - " + errs.join("\n - ")); process.exit(2); }
@@ -101,7 +102,7 @@ if (mode === "pm") {
     const caption = `${D.long} 오늘의 띠별 운세 ${mark} ${names}\n\n${part.map((r) => `${r.key}띠 ${r.years.map((y) => String(y.year).slice(2)).join("·")}년생 · 행운의 색 ${r.lucky.color.name}`).join("\n")}\n\n이 중 오늘 가장 좋은 띠는 ${best.key}띠예요. 카드를 넘겨 내 년생 운세와 행운의 물건·숫자·방향을 확인하세요.\n\n${NOTE}\n\n${tags}`;
     ids.push(write(`TA${ymd}_${no}`, cards, caption, `${names} 중 내 띠는? 오늘 운세가 맞았는지 저녁에 댓글로 알려 주세요 🙂`, [
       `${D.long} 오늘의 띠별 운세 ${mark}. ${names}`,
-      ...part.map((r) => `${r.key}띠 오늘 운세 별 다섯 개 중 ${r.stars}개. ${r.total} ${r.years.map((y) => `${y.year}년생 ${y.text}`).join(" ")} 행운의 색 ${r.lucky.color.name}, 물건 ${r.lucky.item}, 숫자 ${r.lucky.numbers.join(" ")}, 방향 ${r.lucky.direction}`),
+      ...part.map((r) => `${r.key}띠 오늘 운세 별 다섯 개 중 ${r.stars}개. ${r.total} 총평: ${r.summary} ${r.years.map((y) => `${y.year}년생 ${y.text}`).join(" ")} 행운의 색 ${r.lucky.color.name}, 물건 ${r.lucky.item}, 숫자 ${r.lucky.numbers.join(" ")}, 방향 ${r.lucky.direction}`),
       "매일 아침 6시 년생별 운세, 전날 밤 9시 띠별 순위를 올립니다.",
     ]));
   });

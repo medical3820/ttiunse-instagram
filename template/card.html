@@ -57,24 +57,27 @@
 
   /* 띠 상세 */
   .tti .hd{display:flex;align-items:center;gap:4cqw;margin-top:3.6cqw}
-  .tti .hd .nm{font-size:8.6cqw;font-weight:900;letter-spacing:-.05em;line-height:1}
+  .tti .hd .nm{font-size:7.8cqw;font-weight:900;letter-spacing:-.05em;line-height:1}
   .tti .hd .meta{display:flex;align-items:center;gap:2.4cqw;margin-top:1.8cqw;font-size:4.2cqw}
   .tti .hd .meta .word{font-size:3cqw}
-  .tti .total{margin-top:3.6cqw;background:#fff8ec;border-left:1.2cqw solid var(--c);border-radius:1.6cqw;padding:2.4cqw 3.6cqw;font-size:4.1cqw;font-weight:800;line-height:1.4;text-wrap:balance}
-  .tti .yrs{margin-top:2.4cqw;display:flex;flex-direction:column}
-  .tti .yr{display:flex;align-items:center;gap:3.2cqw;padding:2.2cqw 0;border-bottom:.25cqw dashed var(--line)}
+  .tti .total{margin-top:3cqw;background:#fff8ec;border-left:1.2cqw solid var(--c);border-radius:1.6cqw;padding:2.4cqw 3.6cqw;font-size:4.1cqw;font-weight:800;line-height:1.4;text-wrap:balance}
+  .tti .total .tl{font-size:4.1cqw;font-weight:900}
+  .tti .total .sm{margin-top:1.2cqw;font-size:3.35cqw;font-weight:700;color:#4d4239;line-height:1.5;text-wrap:pretty}
+  .tti .total::before{content:"총평";display:block;font-size:2.5cqw;font-weight:900;color:var(--c);margin-bottom:.6cqw}
+  .tti .yrs{margin-top:1.6cqw;display:flex;flex-direction:column}
+  .tti .yr{display:flex;align-items:center;gap:3.2cqw;padding:1.7cqw 0;border-bottom:.25cqw dashed var(--line)}
   .tti .yr:last-child{border-bottom:0}
   .tti .yr .y{flex:none;width:14.5cqw;font-size:4.2cqw;font-weight:900;color:var(--c);line-height:1.35}
   .tti .yr .y small{display:block;font-size:2.6cqw;color:var(--dim);font-weight:700}
-  .tti .yr .x{font-size:3.75cqw;font-weight:700;line-height:1.45}
+  .tti .yr .x{font-size:3.6cqw;font-weight:700;line-height:1.45}
   .tti .lk{margin-top:auto;display:grid;grid-template-columns:1.15fr 1.25fr .9fr .9fr;gap:1.4cqw}
   .tti .lk > div{background:var(--paper2);border-radius:2cqw;padding:2cqw 2.2cqw;display:flex;align-items:center;gap:1.6cqw;min-width:0}
   .tti .lk > div > span:last-child{min-width:0}
   .tti .lk .k{font-size:2.4cqw;font-weight:800;color:var(--dim)}
   .tti .lk .v{margin-top:.6cqw;font-size:3.5cqw;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .sw{flex:none;width:5cqw;height:5cqw;border-radius:50%;background:var(--sw);box-shadow:inset 0 0 0 .3cqw rgba(0,0,0,.15)}
-  .squeeze .tti .yr .x,.squeeze.tti .yr .x{font-size:3.45cqw}
-  .squeeze.tti .yr{padding:1.8cqw 0}
+  .squeeze.tti .yr .x{font-size:3.35cqw} .squeeze.tti .total .sm{font-size:3.15cqw}
+  .squeeze.tti .yr{padding:1.2cqw 0}
 
   /* 순위 */
   .h2{font-size:6.4cqw;font-weight:900;letter-spacing:-.045em;margin-top:3.4cqw}
@@ -137,9 +140,9 @@
     if (c.type === "tti") {
       const t = c.tti, L = t.lucky;
       return `<section class="card tti" style="--c:${t.color}"><div class="in">${top()}
-        <div class="hd">${medal(t, "15.5cqw")}<div><div class="nm">${t.key}띠</div>
+        <div class="hd">${medal(t, "13.5cqw")}<div><div class="nm">${t.key}띠</div>
           <div class="meta"><span class="stars">${st(t.stars)}</span><span class="word">${esc(t.word)}</span></div></div></div>
-        <div class="total">${esc(t.total)}</div>
+        <div class="total"><div class="tl">${esc(t.total)}</div><div class="sm">${esc(t.summary)}</div></div>
         <div class="yrs">${t.years.map((y) => `<div class="yr"><div class="y num">${y.year}<small>년생</small></div><div class="x">${esc(y.text)}</div></div>`).join("")}</div>
         <div class="lk">
           <div><span class="sw" style="--sw:${L.color.hex}"></span><span><div class="k">행운의 색</div><div class="v">${esc(L.color.name)}</div></span></div>
