@@ -128,6 +128,131 @@
   .outro .share b{font-weight:800;color:var(--ink)}
   .outro .rule{margin-top:2.4cqw;border-top:.4cqw solid #1f1b18;padding-top:2.6cqw;text-align:center;font-size:3.7cqw;font-weight:400}
   .outro .rule b{font-weight:800}
+  /* 주간 띠별 운세 한 장 (원장님 참고 시안 2026-11-10: 연분홍 바탕, 2열 x 6줄, 띠 동그라미 + 년생별 한 줄) */
+  .weekly{background:#fbeae6}
+  .weekly::before{display:none}
+  .weekly .in{padding:4.6cqw 4.4cqw 3.6cqw}
+  .weekly .hd{display:flex;align-items:center;justify-content:center;gap:2.4cqw}
+  .weekly .hd .bn{width:13cqw;height:13cqw;flex:none}
+  .weekly .hd .bn svg{width:100%;height:100%}
+  .weekly .hd .k{font-family:Jua,var(--f);font-size:3.4cqw;color:#a2665a}
+  .weekly .hd .t{font-family:Jua,var(--f);font-size:7.4cqw;line-height:1.05;color:#5a3a32}
+  .weekly .grid{margin-top:2.4cqw;flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(6,1fr);column-gap:2cqw;row-gap:1.2cqw;
+    background:#fffaf6;border-radius:3cqw;padding:2.6cqw 2.2cqw;box-shadow:0 .4cqw 1.6cqw rgba(160,100,90,.12)}
+  .weekly .cell{display:flex;align-items:center;gap:1.4cqw;min-width:0}
+  .weekly .cell .md{flex:none;width:8.6cqw;text-align:center}
+  .weekly .cell .medal{--s:7.8cqw;margin:0 auto;font-size:3.9cqw}
+  .weekly .cell .nm{display:inline-block;margin-top:-1.4cqw;position:relative;background:#fff;border:.3cqw solid #e2c6bd;border-radius:3cqw;padding:0 1cqw;font-size:2.2cqw;white-space:nowrap;font-weight:800;color:#5a3a32}
+  .weekly .cell .ln{min-width:0;display:flex;flex-direction:column;gap:.5cqw}
+  .weekly .cell .l{font-size:2.6cqw;font-weight:700;color:#4a3a34;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .weekly .cell .l b{font-weight:800;color:#c0625a;margin-right:.8cqw}
+  .weekly .ft{margin-top:1.8cqw;display:flex;justify-content:space-between;font-size:2.6cqw;font-weight:700;color:#a2665a}
+  .weekly .ft b{color:#5a3a32;font-weight:800}
+  /* 이달의 띠운세 한 장 (원장님 참고 시안 2026-11-10: 4열 x 3줄, 말풍선 + 연애·금전·직장·전체 + 한 줄 조언) */
+  .monthly{background:#f7efe0}
+  .monthly::before{display:none}
+  .monthly .in{padding:3.6cqw 3.4cqw 3cqw}
+  .monthly .hd{display:flex;align-items:center;gap:2.6cqw;background:#fffaf0;border:.35cqw solid #e5d3b3;border-radius:2.4cqw;padding:1.6cqw 3cqw}
+  .monthly .hd .bn{width:9cqw;height:9cqw;flex:none} .monthly .hd .bn svg{width:100%;height:100%}
+  .monthly .hd .t{font-family:Jua,var(--f);font-size:7cqw;line-height:1;color:#3a2a20} .monthly .hd .t em{font-style:normal;color:#2f6fd6}
+  .monthly .hd .s{margin-top:1cqw;font-size:2.7cqw;font-weight:700;color:#6a5646;line-height:1.35}
+  .monthly .hd .lg{margin-left:auto;flex:none;display:grid;grid-template-columns:auto auto;gap:.5cqw 1.6cqw;font-size:2.3cqw;font-weight:800;color:#4a3a30}
+  .monthly .hd .lg i,.monthly .rt i{font-style:normal;display:inline-block;width:1.8cqw;height:1.8cqw;border-radius:50%;margin-right:.8cqw;vertical-align:-.1cqw}
+  .monthly .c-love{background:#e8707e} .monthly .c-money{background:#e0a526} .monthly .c-work{background:#4f7fd6} .monthly .c-all{background:#4caa6a}
+  .monthly .grid{margin-top:1.6cqw;flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,minmax(0,1fr));gap:1.2cqw}
+  .monthly .cell{background:#fffaf2;border:.3cqw solid #ead9bd;border-radius:2cqw;padding:1.3cqw 1.4cqw 1.2cqw;display:flex;flex-direction:column;min-width:0}
+  .monthly .cell .nm{font-size:3.2cqw;font-weight:800;color:#3a2a20;white-space:nowrap}
+  .monthly .cell .bub{position:relative;margin-top:.8cqw;background:#fff;border:.3cqw solid #d9c7a8;border-radius:1.8cqw;padding:.7cqw 1cqw;font-size:2.15cqw;font-weight:800;line-height:1.3;color:#3a2a20;text-align:center;min-height:5.6cqw;display:grid;place-items:center}
+  .monthly .cell .mid{margin-top:1cqw}
+  .monthly .cell .nm .medal{--s:4.8cqw;font-size:2.5cqw;display:inline-grid;vertical-align:-1cqw;margin-right:1cqw}
+  .monthly .rt{display:grid;grid-template-columns:1fr 1fr;gap:.6cqw 1cqw;font-size:2.4cqw;font-weight:700;color:#4a3a30;min-width:0}
+  .monthly .rt span{white-space:nowrap} .monthly .rt b{font-weight:800} .monthly .rt b.best{color:#c0392b}
+  .monthly .cell .adv{margin-top:auto;padding-top:1cqw;border-top:.25cqw dashed #e0cfb2;font-size:2.3cqw;font-weight:800;color:#5a4636;text-align:center;line-height:1.3}
+  .monthly .ft{margin-top:1.6cqw;background:#fdf1c4;border:.35cqw solid #e5cf8a;border-radius:2cqw;padding:1.2cqw 2.4cqw;text-align:center;font-size:3.3cqw;font-weight:800;color:#3a2a20}
+  .monthly .ft small{display:block;margin-top:.6cqw;font-size:2.3cqw;font-weight:700;color:#8a7360}
+  /* 주말 한마디 (원장님 참고 시안 2026-11-10): 큰 두 줄 제목 + 12띠 순위 한 줄씩 */
+  .weekend{background:linear-gradient(180deg,#dfe8ef,#eef3f6)}
+  .weekend::before{display:none}
+  .weekend .in{padding:5cqw 5.4cqw 4cqw}
+  .weekend .t1{font-family:Jua,var(--f);font-size:8.4cqw;color:#fff;text-shadow:0 0 0 #000,.45cqw .45cqw 0 #1a1416,-.45cqw .45cqw 0 #1a1416,.45cqw -.45cqw 0 #1a1416,-.45cqw -.45cqw 0 #1a1416,.6cqw 0 0 #1a1416,-.6cqw 0 0 #1a1416,0 .6cqw 0 #1a1416,0 -.6cqw 0 #1a1416;letter-spacing:-.04em;line-height:1.15}
+  .weekend .t2{font-family:Jua,var(--f);font-size:9.6cqw;color:#f9d65c;text-shadow:0 0 0 #000,.45cqw .45cqw 0 #1a1416,-.45cqw .45cqw 0 #1a1416,.45cqw -.45cqw 0 #1a1416,-.45cqw -.45cqw 0 #1a1416,.6cqw 0 0 #1a1416,-.6cqw 0 0 #1a1416,0 .6cqw 0 #1a1416,0 -.6cqw 0 #1a1416;letter-spacing:-.04em;line-height:1.15;margin-top:.6cqw}
+  .weekend .list{margin-top:3.6cqw;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+  .weekend .r{display:flex;align-items:center;gap:1.8cqw;font-size:4.3cqw;font-weight:800;color:#1f1b18;white-space:nowrap}
+  .weekend .r .medal{--s:6.4cqw;font-size:3.2cqw}
+  .weekend .r .nm{width:15cqw} .weekend .r .yr{color:#d2342b;width:24cqw;font-size:3.9cqw}
+  .weekend .r .tx{overflow:hidden;text-overflow:ellipsis}
+  .weekend .ft{margin-top:2.4cqw;display:flex;justify-content:space-between;font-size:2.8cqw;font-weight:700;color:#55636e}
+  .weekend .ft b{color:#1f1b18;font-weight:800}
+
+  /* 상반기·하반기 띠별 운세 (원장님 참고 시안 2026-11-10): 한 장에 두 띠, 흐름 + 주의할 시기 */
+  .half{background:#fbe3e3}
+  .half::before{display:none}
+  .half .in{padding:4.4cqw 5cqw 3.8cqw}
+  .half .ttl{text-align:center;font-family:Jua,var(--f);font-size:8.4cqw;color:#e0526a;line-height:1}
+  .half .ttl span{color:#3a2a2a}
+  .half .two{margin-top:3cqw;flex:1;display:flex;flex-direction:column;gap:3cqw}
+  .half .bx{flex:1;background:#fff8f6;border:.45cqw solid #e78795;border-radius:2.4cqw;padding:2.6cqw 3cqw;display:flex;flex-direction:column}
+  .half .bx .nm{display:flex;align-items:center;gap:2cqw;font-size:4.6cqw;font-weight:800;color:#3a2a2a}
+  .half .bx .nm .medal{--s:8cqw;font-size:4cqw}
+  .half .bx .nm small{font-size:3cqw;color:#9a6a6a;font-weight:700}
+  .half .bx .fl{margin-top:1.8cqw;font-size:3.35cqw;font-weight:700;line-height:1.55;color:#3a2a2a;white-space:pre-line}
+  .half .bx .warn{margin-top:auto;background:#ffeef0;border:.3cqw dashed #e78795;border-radius:1.8cqw;padding:1.6cqw 2.2cqw;font-size:3.15cqw;font-weight:700;line-height:1.5;color:#4a2a2a}
+  .half .bx .warn b{display:block;font-weight:800;color:#d2342b;margin-bottom:.4cqw}
+  .half .ft{margin-top:2.4cqw;display:flex;justify-content:space-between;font-size:2.8cqw;font-weight:700;color:#9a6a6a}
+  .half .ft b{color:#3a2a2a;font-weight:800}
+  /* 특집 표지 (원장님 참고 시안 2026-11-10): 밤하늘·달·12띠 캐릭터 + 손글씨 한 줄 + 흰 테두리 보라 그라데이션 큰 제목 */
+  .hcover{background:linear-gradient(180deg,#1b2347 0%,#141a36 55%,#0c1024 100%)}
+  .hcover::before{display:none}
+  .hcover .in{padding:0}
+  .hcover .sky{position:relative;height:66%;overflow:hidden;border-bottom:.3cqw solid rgba(255,255,255,.15)}
+  .hcover .moon{position:absolute;left:24cqw;top:-12cqw;width:56cqw;height:56cqw;border-radius:50%;background:#f6d77a;box-shadow:0 0 10cqw rgba(246,215,122,.45)}
+  .hcover .moon::after{content:"";position:absolute;left:14cqw;top:-4cqw;width:52cqw;height:52cqw;border-radius:50%;background:#1b2347}
+  .hcover .star{position:absolute;color:#f6d77a;font-size:3cqw}
+  .hcover .art{position:absolute;left:0;right:0;bottom:0;height:78%;display:flex;align-items:flex-end;justify-content:center}
+  .hcover .art img{width:100%;height:100%;object-fit:contain;object-position:bottom}
+  .hcover .art .med{display:grid;grid-template-columns:repeat(6,1fr);gap:2cqw;padding:0 5cqw 5cqw;width:100%}
+  .hcover .art .med .medal{--s:13cqw;font-size:6.4cqw;margin:0 auto;box-shadow:0 0 0 .8cqw #fff8}
+  .hcover .bot{height:34%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6cqw}
+  .hcover .hand{font-family:Jua,var(--f);font-size:4.6cqw;color:#fff;background:linear-gradient(transparent 55%,#8b5cf6 55%,#8b5cf6 85%,transparent 85%);padding:0 2cqw}
+  .hcover .big{font-family:Jua,var(--f);font-size:12cqw;line-height:1.12;text-align:center;color:#fff;letter-spacing:-.01em;
+    filter:drop-shadow(0 .8cqw 0 #00000055)}
+  .hcover .big span{display:block}
+  .hcover .big .g{background:linear-gradient(180deg,#c9a7ff,#7c4ddb);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0;
+    text-shadow:none;filter:drop-shadow(.5cqw 0 0 #fff) drop-shadow(-.5cqw 0 0 #fff) drop-shadow(0 .5cqw 0 #fff) drop-shadow(0 -.5cqw 0 #fff)}
+  .hcover .big .k{color:#fff;text-shadow:0 0 0 #000,.45cqw .45cqw 0 #1b1530,-.45cqw .45cqw 0 #1b1530,.45cqw -.45cqw 0 #1b1530,-.45cqw -.45cqw 0 #1b1530,.6cqw 0 0 #1b1530,-.6cqw 0 0 #1b1530,0 .6cqw 0 #1b1530,0 -.6cqw 0 #1b1530;filter:drop-shadow(.5cqw 0 0 #fff) drop-shadow(-.5cqw 0 0 #fff) drop-shadow(0 .5cqw 0 #fff) drop-shadow(0 -.5cqw 0 #fff)}
+  .hcover .tag{position:absolute;right:4cqw;top:4cqw;font-family:Jua,var(--f);font-size:4.4cqw;color:#fff;opacity:.9}
+  /* 테마 특집 (원장님 참고 시안 2026-11-10): 물방울/집중선 배경 + '친구 소환' 손글씨 + 광택 테두리 큰 제목, 안쪽은 띠별 좋은 달 */
+  .tcover,.tlist{--a1:#ff7ab8;--a2:#e0217a;--lt:#ffd1e6}
+  .tc-blue{--a1:#7fd0ff;--a2:#1e8be0;--lt:#cdeeff}
+  .tc-orange{--a1:#ffb15c;--a2:#ef6a12;--lt:#ffe3c4}
+  .tcover::before,.tlist::before{display:none}
+  .tcover.dots,.tlist.dots{background:radial-gradient(circle,#ffffff 0 0) ,#eceaf0;
+    background-image:radial-gradient(circle at center,rgba(255,140,190,.35) 0 1.1cqw,transparent 1.2cqw),radial-gradient(circle at center,rgba(140,200,140,.35) 0 1.1cqw,transparent 1.2cqw);
+    background-size:12cqw 12cqw,12cqw 12cqw;background-position:0 0,6cqw 6cqw;background-color:#efedf2}
+  .tcover.burst,.tlist.burst{background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(255,255,255,.16) 0 .6deg,transparent .6deg 6deg),radial-gradient(circle at 50% 50%,#3a2f86 0,#22195c 55%,#150f3e 100%)}
+  .tcover .in{align-items:center;justify-content:center;gap:2.4cqw;padding:6cqw 4cqw}
+  .tcover .hand{font-family:Jua,var(--f);font-size:4.4cqw;color:#1f1b18;background:linear-gradient(transparent 55%,var(--lt) 55%,var(--lt) 92%,transparent 92%);padding:0 2cqw}
+  .tcover.burst .hand{color:#fff;background:linear-gradient(transparent 55%,var(--a2) 55%,var(--a2) 92%,transparent 92%)}
+  .gl{font-family:Jua,var(--f);font-size:15.5cqw;line-height:1.08;text-align:center;letter-spacing:-.01em}
+  .gl span{display:block;position:relative}
+  .gl .c{background:linear-gradient(180deg,var(--a1) 0%,var(--a2) 60%,var(--a2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-stroke:.5cqw #1a1416;filter:drop-shadow(.7cqw 0 0 #fff) drop-shadow(-.7cqw 0 0 #fff) drop-shadow(0 .7cqw 0 #fff) drop-shadow(0 -.7cqw 0 #fff) drop-shadow(0 1cqw 0 rgba(0,0,0,.25))}
+  .gl .w{color:#fff;text-shadow:0 0 0 #000,.45cqw .45cqw 0 #1a1416,-.45cqw .45cqw 0 #1a1416,.45cqw -.45cqw 0 #1a1416,-.45cqw -.45cqw 0 #1a1416,.6cqw 0 0 #1a1416,-.6cqw 0 0 #1a1416,0 .6cqw 0 #1a1416,0 -.6cqw 0 #1a1416;filter:drop-shadow(.7cqw 0 0 #fff) drop-shadow(-.7cqw 0 0 #fff) drop-shadow(0 .7cqw 0 #fff) drop-shadow(0 -.7cqw 0 #fff) drop-shadow(0 1cqw 0 rgba(0,0,0,.25))}
+  .gl .u{display:inline-block;background:linear-gradient(transparent 62%,var(--a2) 62%,var(--a2) 96%,transparent 96%);border-radius:1cqw;padding:0 2cqw}
+  .tcover .tag{position:absolute;right:4cqw;bottom:3.6cqw;font-family:Jua,var(--f);font-size:3.6cqw;color:#1f1b18;opacity:.75}
+  .tcover.burst .tag{color:#fff}
+  .tlist .in{padding:5cqw 5cqw 4cqw}
+  .tlist .h{font-family:Jua,var(--f);font-size:6.6cqw;color:#1f1b18;text-align:center}
+  .tlist.burst .h{color:#fff}
+  .tlist .rows{margin-top:3cqw;flex:1;display:flex;flex-direction:column;gap:1.8cqw}
+  .tlist .r{flex:1;display:flex;align-items:center;gap:2.6cqw;background:#fffdfb;border:.45cqw solid #1a1416;border-radius:2.4cqw;padding:1.6cqw 2.6cqw;box-shadow:0 .7cqw 0 var(--a2)}
+  .tlist .r .medal{--s:10cqw;font-size:5cqw}
+  .tlist .r .nm{font-size:4.2cqw;font-weight:800;color:#1f1b18} .tlist .r .nm small{display:block;font-size:2.6cqw;color:#7a6e63;font-weight:700}
+  .tlist .r .mo{flex:none;margin-left:auto;text-align:right}
+  .tlist .r .mo b{display:inline-block;font-family:Jua,var(--f);font-size:5.2cqw;color:var(--a2)}
+  .tlist .r .mo span{display:block;font-size:2.8cqw;font-weight:700;color:#3a3430;max-width:44cqw}
+  .tlist .ft{margin-top:2.4cqw;display:flex;justify-content:space-between;font-size:2.8cqw;font-weight:700;color:#55505a}
+  .tlist.burst .ft{color:#cfc8f0} .tlist .ft b{font-weight:800}
   /* 스토리 9:16 */
   .story{aspect-ratio:9/16;background:var(--night);color:#f5eee1}
   .story::before{border-color:#4a3e36}
@@ -194,6 +319,52 @@
     if (c.type === "lucky") {
       return `<section class="card lucky"><div class="in">${top()}<div class="h2">${esc(c.title)}</div>
         <div class="grid">${c.list.map((t) => `<div class="g">${medal(t)}<div class="mid"><div class="n">${t.key}띠</div><div class="it"><b>${esc(t.lucky.color.name)}</b> · ${esc(t.lucky.item)}</div></div><span class="sw" style="--sw:${t.lucky.color.hex}"></span></div>`).join("")}</div>${foot(i, n)}</div></section>`;
+    }
+    if (c.type === "weekly") {
+      return `<section class="card weekly"><div class="in">
+        <div class="hd"><div class="bn">${window.bunny ? bunny("face") : ""}</div><div><div class="k">띠운세 토끼가 알려주는</div><div class="t">${esc(c.range)} 띠별 주간 운세</div></div></div>
+        <div class="grid">${c.rows.map((t) => `<div class="cell"><div class="md">${medal(t)}<span class="nm">${t.key}띠</span></div>
+          <div class="ln">${t.years.map((y) => `<div class="l"><b class="num">${String(y.year).slice(2)}년생</b>${esc(y.text)}</div>`).join("")}</div></div>`).join("")}</div>
+        <div class="ft"><span><b>${esc(H.handle)}</b> · 매일 아침 6시 띠별 운세</span><span>저장해 두고 한 주 동안 꺼내 보세요</span></div></div></section>`;
+    }
+    if (c.type === "monthly") {
+      const R = [["love", "연애"], ["money", "금전"], ["work", "직장"], ["all", "전체"]];
+      return `<section class="card monthly"><div class="in">
+        <div class="hd"><div class="bn">${window.bunny ? bunny("face") : ""}</div><div><div class="t">${esc(c.month)} <em>띠운세</em></div><div class="s">${esc(c.summary)}</div></div>
+          <div class="lg">${R.map(([k, n]) => `<span><i class="c-${k}"></i>${n}운</span>`).join("")}</div></div>
+        <div class="grid">${c.rows.map((t) => `<div class="cell"><div class="nm">${medal(t)}${t.key}띠</div><div class="bub">${esc(t.bubble)}</div>
+          <div class="mid"><div class="rt">${R.map(([k, n]) => `<span><i class="c-${k}"></i><b class="${t[k] === "최고" ? "best" : ""}">${esc(t[k])}</b></span>`).join("")}</div></div>
+          <div class="adv">${esc(t.advice)}</div></div>`).join("")}</div>
+        <div class="ft">행운 한 줄 요약 · ${esc(c.oneline)}<small>${esc(H.handle)} · 매일 아침 6시 띠별 운세 · 일요일 밤 8시 주간 운세</small></div></div></section>`;
+    }
+    if (c.type === "weekend") {
+      return `<section class="card weekend"><div class="in">
+        <div class="t1">${esc(c.t1)}</div><div class="t2">${esc(c.t2)}</div>
+        <div class="list">${c.list.map((t) => `<div class="r">${medal(t)}<span class="nm">${t.key}띠</span><span class="yr num">${t.years.map((y) => String(y.year).slice(2)).join("·")}년생</span><span class="tx">${esc(t.line)}</span></div>`).join("")}</div>
+        <div class="ft"><span><b>${esc(H.handle)}</b> · 주말 한마디</span><span>${i}/${n}</span></div></div></section>`;
+    }
+    if (c.type === "half") {
+      return `<section class="card half"><div class="in"><div class="ttl"><span>#</span>${esc(c.label)} 띠별 운세</div>
+        <div class="two">${c.pair.map((t) => `<div class="bx"><div class="nm">${medal(t)}${t.key}띠 <small class="num">(${t.years.map((y) => String(y.year).slice(2)).join(", ")}년생)</small></div>
+          <div class="fl">${esc(t.flow)}</div><div class="warn"><b>⚠ 주의해야 할 시기 (${esc(t.when)})</b>${esc(t.caution)}</div></div>`).join("")}</div>
+        <div class="ft"><span><b>${esc(H.handle)}</b> · ${esc(c.label)} 띠별 운세</span><span>${i}/${n}</span></div></div></section>`;
+    }
+    if (c.type === "hcover") {
+      const stars = [[8,10],[16,28],[86,14],[92,34],[70,6],[6,44],[60,30]].map(([x, y]) => `<span class="star" style="left:${x}cqw;top:${y}cqw">✦</span>`).join("");
+      const art = c.art ? `<img src="${c.art}" alt="">` : `<div class="med">${c.rows.map((t) => medal(t)).join("")}</div>`;
+      return `<section class="card hcover"><div class="in"><div class="sky"><div class="moon"></div>${stars}<div class="tag">띠운세</div><div class="art">${art}</div></div>
+        <div class="bot"><div class="hand">${esc(c.hand)}</div><div class="big"><span class="g">${esc(c.l1)}</span><span class="k">${esc(c.l2)}</span></div></div></div></section>`;
+    }
+    if (c.type === "tcover") {
+      return `<section class="card tcover ${c.bg} tc-${c.color}"><div class="in"><div class="hand">${esc(c.hand)}</div>
+        <div class="gl"><span class="c">${esc(c.l1)}</span><span class="w">${esc(c.l2)}</span><span><span class="c u">${esc(c.l3)}</span></span></div>
+        <div class="tag">${esc(H.handle)}</div></div></section>`;
+    }
+    if (c.type === "tlist") {
+      return `<section class="card tlist ${c.bg} tc-${c.color}"><div class="in"><div class="h">${esc(c.title)}</div>
+        <div class="rows">${c.list.map((t) => `<div class="r">${medal(t)}<div class="nm">${t.key}띠<small class="num">${t.years.map((y) => String(y.year).slice(2)).join("·")}년생</small></div>
+          <div class="mo"><b>${esc(t.months)}</b><span>${esc(t.line)}</span></div></div>`).join("")}</div>
+        <div class="ft"><span><b>${esc(H.handle)}</b> · 테마 특집</span><span>${i}/${n}</span></div></div></section>`;
     }
     if (c.type === "story") {
       return `<section class="card story"><div class="wm">${c.tti.hanja}</div><div class="in">${top()}

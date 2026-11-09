@@ -9,7 +9,7 @@ name: 오늘의 띠운세 발행
 
 on:
   push:
-    paths: ["inbox/*.json", "inbox/*.go"]
+    paths: ["inbox/*.json", "inbox/*.go", "!inbox/*-weekly.json", "!inbox/*-monthly.json", "!inbox/*-weekend.json", "!inbox/*-half.json", "!inbox/*-theme.json"]   # 특집은 extra.yml
   workflow_dispatch:
     inputs:
       date: { description: "운세 날짜 YYYY-MM-DD", required: true }
@@ -35,7 +35,7 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "date=${{ github.event.inputs.date }}" >> "$GITHUB_OUTPUT"; echo "mode=${{ github.event.inputs.mode }}" >> "$GITHUB_OUTPUT"; exit 0
           fi
-          new=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- 'inbox/*.json' 'inbox/*.go')
+          new=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- 'inbox/*.json' 'inbox/*.go' | grep -Ev -- '-(weekly|monthly|weekend|half|theme)\.json$' || true)
           f=$(echo "$new" | grep '\.go$' | tail -1); [ -z "$f" ] && f=$(echo "$new" | tail -1)   # .go 가 있으면 아침이 우선
           [ -z "$f" ] && { echo "새 inbox 파일 없음 — 건너뜀"; echo "mode=none" >> "$GITHUB_OUTPUT"; exit 0; }
           d=$(basename "$f" | cut -c1-10)
