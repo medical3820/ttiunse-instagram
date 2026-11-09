@@ -23,7 +23,7 @@ try {
     const tmp = join(ROOT, "work", `render_${id}.html`);
     writeFileSync(tmp, html);
 
-    const page = await browser.newPage({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 1 });
+    const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
     await page.goto(pathToFileURL(tmp).href, { waitUntil: "networkidle" });
     await page.evaluate(() => { document.documentElement.classList.add("render"); document.documentElement.style.setProperty("--card-w", "1080px"); });
     await page.waitForFunction(() => document.documentElement.dataset.ready === "1");

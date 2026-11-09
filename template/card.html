@@ -25,10 +25,11 @@
   .in{position:absolute;inset:0;display:flex;flex-direction:column;padding:6.4cqw 6.4cqw 5.6cqw}
   .card::before{content:"";position:absolute;inset:2.4cqw;border:.3cqw solid var(--line);border-radius:2cqw;pointer-events:none}
   .num{font-variant-numeric:tabular-nums}
+  .foot .fh{color:var(--ink);font-weight:900} .cover .foot .fh,.outro .foot .fh{color:var(--gold)}
 
   .top{display:flex;justify-content:space-between;align-items:center;font-size:3cqw;font-weight:800;color:var(--dim)}
   .top b{color:var(--ink);font-weight:900;letter-spacing:-.02em}
-  .foot{margin-top:auto;display:flex;justify-content:space-between;font-size:2.7cqw;font-weight:700;color:var(--dim);padding-top:2cqw}
+  .foot{margin-top:auto;display:flex;justify-content:space-between;gap:2cqw;font-size:2.55cqw;font-weight:700;color:var(--dim);padding-top:2cqw}
 
   .medal{flex:none;width:var(--s,16cqw);height:var(--s,16cqw);border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;
     font-size:calc(var(--s,16cqw)*.5);font-weight:900;font-family:"Noto Serif CJK KR","Noto Serif KR",serif;box-shadow:inset 0 0 0 .5cqw rgba(255,255,255,.25)}
@@ -43,7 +44,10 @@
   .cover .bigdate{margin-top:8cqw;display:flex;align-items:baseline;gap:3cqw}
   .cover .bigdate .d{font-size:17cqw;font-weight:900;letter-spacing:-.05em;line-height:1}
   .cover .bigdate .w{font-size:7cqw;font-weight:900;color:var(--gold)}
-  .cover .kicker{margin-top:4cqw;display:inline-block;align-self:flex-start;background:var(--gold);color:var(--night);font-weight:900;font-size:3.6cqw;padding:1cqw 2.8cqw;border-radius:1.2cqw}
+  .cover .habit{margin-top:4cqw;display:flex;flex-wrap:wrap;align-items:center;gap:1.6cqw}
+  .cover .clock,.cover .dayn{font-size:3cqw;font-weight:900;border:.3cqw solid #6b5b4f;color:#e8dccb;padding:.8cqw 2cqw;border-radius:1.2cqw}
+  .cover .dayn{border-color:var(--gold);color:var(--gold)}
+  .cover .kicker{display:inline-block;background:var(--gold);color:var(--night);font-weight:900;font-size:3.6cqw;padding:1cqw 2.8cqw;border-radius:1.2cqw}
   .cover h1{font-size:8.6cqw;font-weight:900;line-height:1.22;letter-spacing:-.045em;margin:3.4cqw 0 0;white-space:pre-line}
   .cover .sub{font-size:3.4cqw;color:#bfae9c;font-weight:700;margin-top:2.4cqw}
   .cover .ring{margin-top:auto;display:grid;grid-template-columns:repeat(6,1fr);gap:2cqw;text-align:center;font-size:2.9cqw;font-weight:800;color:#e8dccb}
@@ -53,7 +57,7 @@
   .cover .hero .t{font-size:3cqw;color:#bfae9c;font-weight:800}
   .cover .hero .n{font-size:7cqw;font-weight:900;margin:.6cqw 0 1cqw}
   .cover .hero .stars{font-size:4.6cqw} .cover .hero .stars i{color:#5a4c42}
-  .cover .wm{position:absolute;right:-6cqw;top:16cqw;font-size:62cqw;line-height:1;color:rgba(255,255,255,.035);font-family:"Noto Serif CJK KR",serif;font-weight:900;pointer-events:none}
+  .cover .wm,.story .wm{position:absolute;right:-6cqw;top:16cqw;font-size:62cqw;line-height:1;color:rgba(255,255,255,.035);font-family:"Noto Serif CJK KR",serif;font-weight:900;pointer-events:none}
 
   /* 띠 상세 */
   .tti .hd{display:flex;align-items:center;gap:4cqw;margin-top:3.6cqw}
@@ -102,14 +106,32 @@
   .lucky .g .sw{width:5cqw;height:5cqw;margin-left:auto}
   .lucky .g .mid{min-width:0}
 
+  /* 스토리 9:16 */
+  .story{aspect-ratio:9/16;background:var(--night);color:#f5eee1}
+  .story::before{border-color:#4a3e36}
+  .story .top,.story .foot{color:#bfae9c} .story .top b{color:var(--gold)} .story .foot .fh{color:var(--gold)}
+  .story .in{padding:14cqw 7cqw 12cqw}
+  .story .clockbig{margin-top:14cqw;font-size:30cqw;font-weight:900;letter-spacing:-.05em;line-height:1;color:var(--gold)}
+  .story .sk{margin-top:3cqw;font-size:5.4cqw;font-weight:900}
+  .story .hero{margin-top:12cqw;display:flex;align-items:center;gap:6cqw}
+  .story h1{margin:0;font-size:11cqw;line-height:1.2;font-weight:900;letter-spacing:-.045em;white-space:pre-line}
+  .story .sl{margin-top:8cqw;font-size:5cqw;font-weight:800;color:#e8dccb}
+  .story .nx{margin-top:auto;background:var(--night2);border-radius:3cqw;padding:4cqw 5cqw;font-size:5cqw;font-weight:900}
+  .story .nx span{display:block;font-size:3.4cqw;color:var(--gold);margin-bottom:1cqw}
+  .story .foot{font-size:3.2cqw;padding-top:4cqw}
+  .story .wm{top:auto;bottom:30cqw;font-size:80cqw}
   /* 마무리 */
   .outro{background:var(--night);color:#f5eee1}
   .outro::before{border-color:#4a3e36}
   .outro .top,.outro .foot{color:#bfae9c} .outro .top b{color:var(--gold)}
-  .outro h1{font-size:9cqw;font-weight:900;line-height:1.25;letter-spacing:-.045em;margin:18cqw 0 0;white-space:pre-line}
+  .outro h1{font-size:9cqw;font-weight:900;line-height:1.25;letter-spacing:-.045em;margin:7cqw 0 0;white-space:pre-line}
   .outro ul{list-style:none;padding:0;margin:6cqw 0 0;font-size:4.2cqw;font-weight:700;line-height:1.9;color:#e8dccb}
   .outro ul li::before{content:"·  ";color:var(--gold)}
-  .outro .follow{margin-top:auto;align-self:flex-start;background:var(--gold);color:var(--night);font-size:4.4cqw;font-weight:900;padding:2.2cqw 4.4cqw;border-radius:2cqw}
+  .outro .perks{margin-top:5cqw;display:flex;flex-direction:column;gap:1.8cqw}
+  .outro .pk{display:flex;align-items:center;gap:3cqw;background:var(--night2);border-radius:2.2cqw;padding:2.6cqw 3.2cqw;font-size:4.2cqw;font-weight:800;color:#f5eee1}
+  .outro .pt{flex:none;min-width:17cqw;text-align:center;background:var(--gold);color:var(--night);font-weight:900;font-size:3.2cqw;border-radius:1.4cqw;padding:.8cqw 1.6cqw}
+  .outro .teaser{margin-top:4cqw;font-size:3.5cqw;font-weight:800;color:var(--gold);line-height:1.5}
+  .outro .follow{margin-top:auto;align-self:stretch;text-align:center;background:var(--gold);color:var(--night);font-size:4.4cqw;font-weight:900;padding:2.2cqw 4.4cqw;border-radius:2cqw}
 </style>
 </head>
 <body>
@@ -124,7 +146,7 @@
   const st = (n) => "★".repeat(n) + `<i>${"★".repeat(5 - n)}</i>`;
   const medal = (t, s) => `<div class="medal" style="--c:${t.color}${s ? `;--s:${s}` : ""}">${t.hanja}</div>`;
   const top = (dark) => `<div class="top"><b>${esc(H.brand)}</b><span class="num">${H.md} ${H.wd}</span></div>`;
-  const foot = (i, n) => `<div class="foot"><span>${esc(H.handle)}</span><span class="num">${i}/${n}</span></div>`;
+  const foot = (i, n) => `<div class="foot"><span><b class="fh">${esc(H.handle)}</b> · 팔로우하고 매일 아침 6시 내 띠 운세 받기</span><span class="num">${i}/${n}</span></div>`;
   const n = data.cards.length;
 
   const html = data.cards.map((c, k) => {
@@ -135,7 +157,7 @@
         : `<div class="hero">${medal(c.tti)}<div><div class="t">내일 1위</div><div class="n">${c.tti.key}띠</div><div class="stars">${st(c.tti.stars)}</div></div></div>`;
       return `<section class="card cover"><div class="wm">${(c.tti || c.list[0]).hanja}</div><div class="in">${top()}
         <div class="bigdate"><span class="d num">${H.md}</span><span class="w">${H.wd}요일</span></div>
-        <span class="kicker">${esc(c.kicker)}</span><h1>${esc(c.title)}</h1><div class="sub">${esc(c.sub)}</div>${bottom}${foot(i, n)}</div></section>`;
+        <div class="habit"><span class="kicker">${esc(c.kicker)}</span><span class="clock">매일 06:00 · 21:00</span><span class="dayn">${H.dayN}일째</span></div><h1>${esc(c.title)}</h1><div class="sub">${esc(c.sub)}</div>${bottom}${foot(i, n)}</div></section>`;
     }
     if (c.type === "tti") {
       const t = c.tti, L = t.lucky;
@@ -161,8 +183,18 @@
       return `<section class="card lucky"><div class="in">${top()}<div class="h2">${esc(c.title)}</div>
         <div class="grid">${c.list.map((t) => `<div class="g">${medal(t)}<div class="mid"><div class="n">${t.key}띠</div><div class="it"><b>${esc(t.lucky.color.name)}</b> · ${esc(t.lucky.item)}</div></div><span class="sw" style="--sw:${t.lucky.color.hex}"></span></div>`).join("")}</div>${foot(i, n)}</div></section>`;
     }
-    return `<section class="card outro"><div class="in">${top()}<h1>${esc(c.title)}</h1><ul>${c.lines.map((l) => `<li>${esc(l)}</li>`).join("")}</ul>
-      <span class="follow">${esc(H.handle)} 팔로우</span>${foot(i, n)}</div></section>`;
+    if (c.type === "story") {
+      return `<section class="card story"><div class="wm">${c.tti.hanja}</div><div class="in">${top()}
+        <div class="clockbig num">${c.clock}</div><div class="sk">${esc(c.kicker)}</div>
+        <div class="hero">${medal(c.tti, "30cqw")}<h1>${esc(c.title)}</h1></div>
+        <div class="sl">${esc(c.line)}</div>
+        <div class="nx"><span>다음 도착</span>${esc(c.next)}</div>
+        <div class="foot"><span><b class="fh">${esc(H.handle)}</b> · 매일 같은 시간, 내 띠 운세</span><span class="num">${H.dayN}일째</span></div></div></section>`;
+    }
+    return `<section class="card outro"><div class="in">${top()}<h1>${esc(c.title)}</h1>
+      <div class="perks">${c.perks.map(([t, x]) => `<div class="pk"><span class="pt">${esc(t)}</span><span>${esc(x)}</span></div>`).join("")}</div>
+      <div class="teaser">${esc(c.teaser)}</div>
+      <span class="follow">${esc(H.handle)} 팔로우하기</span>${foot(i, n)}</div></section>`;
   }).join("");
   document.getElementById("deck").innerHTML = html;
   document.fonts.ready.then(() => (document.documentElement.dataset.ready = "1"));
