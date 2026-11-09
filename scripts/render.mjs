@@ -27,8 +27,13 @@ try {
     await page.goto(pathToFileURL(tmp).href, { waitUntil: "networkidle" });
     await page.evaluate(() => { document.documentElement.classList.add("render"); document.documentElement.style.setProperty("--card-w", "1080px"); });
     await page.waitForFunction(() => document.documentElement.dataset.ready === "1");
-    const fontOk = await page.evaluate(() => [...document.fonts].some((f) => f.family.replace(/"/g, "") === "NanumSquareRound" && f.status === "loaded"));
-    if (!fontOk) throw new Error("나눔스퀘어라운드 글꼴을 불러오지 못했습니다 (jsdelivr 연결 확인).");
+    // 글꼴을 직접 불러오게 한 뒤 확인한다 (화면에 늦게 그려진 카드는 글꼴 요청이 늦어 '아직 안 불러옴'으로 보일 수 있음)
+    const fontOk = await page.evaluate(async () => {
+      try { await Promise.all(["400", "700", "800"].map((w) => document.fonts.load(`${w} 40px NanumSquareRound`, "가나다"))); } catch {}
+      await document.fonts.ready;
+      return [...document.fonts].some((f) => f.family.replace(/"/g, "") === "NanumSquareRound" && f.status === "loaded");
+    });
+    if (!fontOk) throw new Error("나눔스퀘어라운드 글꼴을 불러오지 못했습니다 (assets/fonts 확인).");
 
     const over = () => page.$$eval(".card .in", (els) => els.map((el, i) => (el.scrollHeight > el.clientHeight + 2 ? i + 1 : 0)).filter(Boolean));
     let overflow = await over();

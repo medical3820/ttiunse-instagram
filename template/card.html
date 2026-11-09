@@ -7,9 +7,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&display=swap">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/innks/NanumSquareRound@master/nanumsquareround.min.css">
+
 <script src="../template/mascot.js"></script>
 <style>
+  /* 나눔스퀘어라운드(OFL)는 저장소에 넣어 둠 — 외부 글꼴 서버가 막혀도 발행이 멈추지 않게 */
+  @font-face{font-family:NanumSquareRound;font-weight:300;font-display:block;src:url(../assets/fonts/NanumSquareRoundL.woff2) format("woff2")}
+  @font-face{font-family:NanumSquareRound;font-weight:400;font-display:block;src:url(../assets/fonts/NanumSquareRoundR.woff2) format("woff2")}
+  @font-face{font-family:NanumSquareRound;font-weight:700;font-display:block;src:url(../assets/fonts/NanumSquareRoundB.woff2) format("woff2")}
+  @font-face{font-family:NanumSquareRound;font-weight:800;font-display:block;src:url(../assets/fonts/NanumSquareRoundEB.woff2) format("woff2")}
   /* 한지 크림 바탕 + 먹색 글자 + 띠마다 다른 포인트 색. 1080x1350(4:5), 치수는 cqw(카드 너비 1%). */
   :root{
     --paper:#f5eee1; --paper2:#ece2cf; --ink:#2a2320; --dim:#7a6e63; --line:#dccfb8;
