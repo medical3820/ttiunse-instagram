@@ -6,14 +6,15 @@
 <title>오늘의 띠운세 카드</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;800;900&family=Jua&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/innks/NanumSquareRound@master/nanumsquareround.min.css">
 <script src="../template/mascot.js"></script>
 <style>
   /* 한지 크림 바탕 + 먹색 글자 + 띠마다 다른 포인트 색. 1080x1350(4:5), 치수는 cqw(카드 너비 1%). */
   :root{
     --paper:#f5eee1; --paper2:#ece2cf; --ink:#2a2320; --dim:#7a6e63; --line:#dccfb8;
     --night:#231d1a; --night2:#342b26; --gold:#e9c46a;
-    --f:"Gothic A1","Noto Sans CJK KR","Noto Sans KR",system-ui,sans-serif;
+    --f:"NanumSquareRound","Noto Sans CJK KR","Noto Sans KR",system-ui,sans-serif;
     --card-w:100%; color-scheme:light;
   }
   *{box-sizing:border-box}
@@ -26,7 +27,7 @@
   .in{position:absolute;inset:0;display:flex;flex-direction:column;padding:6.4cqw 6.4cqw 5.6cqw}
   .card::before{content:"";position:absolute;inset:2.4cqw;border:.3cqw solid var(--line);border-radius:2cqw;pointer-events:none}
   .num{font-variant-numeric:tabular-nums}
-  .foot .fh{color:var(--ink);font-weight:900} .outro .foot .fh{color:var(--gold)}
+  .foot .fh{color:var(--ink);font-weight:900}
 
   .top{display:flex;justify-content:space-between;align-items:center;font-size:3cqw;font-weight:800;color:var(--dim)}
   .top b{color:var(--ink);font-family:Jua,var(--f);font-weight:400;font-size:4.2cqw;letter-spacing:0}
@@ -107,6 +108,22 @@
   .lucky .g .sw{width:5cqw;height:5cqw;margin-left:auto}
   .lucky .g .mid{min-width:0}
 
+  /* 마무리: 표지와 같은 크림 쪽지 */
+  .outro{background:#fbf7ee}
+  .outro::before{display:none}
+  .outro .in{padding:6.4cqw 6.8cqw 5.4cqw}
+  .outro .top{font-size:3.6cqw;color:var(--ink)} .outro .top b{font-size:5.4cqw}
+  .outro .note{margin-top:9cqw;font-family:Jua,var(--f);font-size:9.6cqw;line-height:1.32;color:#141210;text-wrap:balance}
+  .outro .share{margin-top:3.6cqw;font-size:3.8cqw;font-weight:700;color:var(--dim);line-height:1.5}
+  .outro .box{margin-top:auto;position:relative;background:#f9d65c;border:.5cqw solid #1f1b18;border-radius:2cqw;min-height:22cqw;display:flex;align-items:center;justify-content:flex-end;padding:3cqw 4.6cqw}
+  .outro .box .bn{position:absolute;left:3cqw;bottom:2.2cqw;width:19cqw;height:19cqw}
+  .outro .box .bn svg{width:100%;height:100%}
+  .outro .box .bt{font-family:Jua,var(--f);font-size:7cqw;line-height:1.25;text-align:right;white-space:pre-line;color:#1f1b18}
+  .outro .plan{margin-top:3.4cqw;display:flex;justify-content:center;gap:2cqw;font-size:3.8cqw;font-weight:700}
+  .outro .plan b{font-weight:800;color:#2f6fd6} .outro .plan .dot{color:var(--dim)}
+  .outro .teaser{margin-top:1.4cqw;text-align:center;font-size:3.2cqw;font-weight:700;color:var(--dim)}
+  .outro .rule{margin-top:2.6cqw;border-top:.4cqw solid #1f1b18;padding-top:2.6cqw;text-align:center;font-size:3.7cqw;font-weight:700}
+  .outro .rule b{font-weight:800}
   /* 스토리 9:16 */
   .story{aspect-ratio:9/16;background:var(--night);color:#f5eee1}
   .story::before{border-color:#4a3e36}
@@ -122,18 +139,6 @@
   .story .foot{font-size:3.2cqw;padding-top:4cqw}
   .story .wm{top:auto;bottom:30cqw;font-size:80cqw}
   /* 마무리 */
-  .outro{background:var(--night);color:#f5eee1}
-  .outro::before{border-color:#4a3e36}
-  .outro .top,.outro .foot{color:#bfae9c} .outro .top b{color:var(--gold)}
-  .outro h1{font-size:6.6cqw;font-weight:900;line-height:1.25;letter-spacing:-.045em;margin:3.6cqw 0 0;white-space:pre-line}
-  .outro ul{list-style:none;padding:0;margin:6cqw 0 0;font-size:4.2cqw;font-weight:700;line-height:1.9;color:#e8dccb}
-  .outro ul li::before{content:"·  ";color:var(--gold)}
-  .outro .cheer{margin-top:4.6cqw;font-family:Jua,var(--f);font-size:5.6cqw;line-height:1.35;color:#f9d65c}
-  .outro .perks{margin-top:3cqw;display:flex;flex-direction:column;gap:1.5cqw}
-  .outro .pk{display:flex;align-items:center;gap:3cqw;background:var(--night2);border-radius:2.2cqw;padding:2.2cqw 3.2cqw;font-size:4cqw;font-weight:800;color:#f5eee1}
-  .outro .pt{flex:none;min-width:17cqw;text-align:center;background:var(--gold);color:var(--night);font-weight:900;font-size:3.2cqw;border-radius:1.4cqw;padding:.8cqw 1.6cqw}
-  .outro .teaser{margin-top:2.8cqw;font-size:3.3cqw;font-weight:800;color:var(--gold);line-height:1.5;white-space:pre-line}
-  .outro .follow{margin-top:auto;align-self:stretch;text-align:center;background:var(--gold);color:var(--night);font-size:4.4cqw;font-weight:900;padding:2cqw 4.4cqw;border-radius:2cqw;margin-bottom:1cqw}
 </style>
 </head>
 <body>
@@ -194,10 +199,14 @@
         <div class="nx"><span>다음 도착</span>${esc(c.next)}</div>
         <div class="foot"><span><b class="fh">${esc(H.handle)}</b> · 매일 같은 시간, 내 띠 운세</span><span class="num">${H.dayN}일째</span></div></div></section>`;
     }
-    return `<section class="card outro"><div class="in">${top()}${c.cheer ? `<div class="cheer">${esc(c.cheer)}</div>` : ""}<h1>${esc(c.title)}</h1>
-      <div class="perks">${c.perks.map(([t, x]) => `<div class="pk"><span class="pt">${esc(t)}</span><span>${esc(x)}</span></div>`).join("")}</div>
-      <div class="teaser">${c.share ? esc(c.share) + "\n" : ""}${esc(c.teaser)}</div>
-      <span class="follow">${esc(H.handle)} 팔로우하기</span>${foot(i, n)}</div></section>`;
+    // 마무리: 표지와 같은 크림 바탕 쪽지 느낌 — 손글씨 응원 한 줄, 토끼 상자로 다음 시간 약속, 팔로우는 밑줄 한 줄
+    return `<section class="card outro"><div class="in"><div class="top"><b>띠운세</b><span>${H.long}</span></div>
+      <div class="note">${esc(c.cheer || "")}</div>
+      <div class="share">${esc(c.share || "")}</div>
+      <div class="box"><div class="bn">${window.bunny ? bunny("face") : ""}</div><div class="bt">${esc(c.box)}</div></div>
+      <div class="plan"><span><b>아침 6시</b> 띠별 운세</span><span class="dot">·</span><span><b>밤 9시</b> 내일 순위</span></div>
+      ${c.teaser ? `<div class="teaser">${esc(c.teaser)}</div>` : ""}
+      <div class="rule"><b>${esc(H.handle)}</b> 팔로우하고 매일 받아 보세요</div></div></section>`;
   }).join("");
   document.getElementById("deck").innerHTML = html;
   document.fonts.ready.then(() => (document.documentElement.dataset.ready = "1"));

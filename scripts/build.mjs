@@ -113,7 +113,7 @@ if (mode === "pm") {
     { type: "rank", title: "띠별 운세 순위 1~6위", list: rank.slice(0, 6) },
     { type: "rank", title: "띠별 운세 순위 7~12위", list: rank.slice(6) },
     { type: "lucky", title: "띠별 행운의 색·물건", list: rows },
-    { type: "outro", cheer: inbox.cheer, share: inbox.share, title: "팔로우하면\n매일 받는 것", perks: PERKS, teaser: "내일 아침 6시, 띠별 상세 운세 공개" },
+    { type: "outro", cheer: inbox.cheer, share: inbox.share, title: "팔로우하면\n매일 받는 것", perks: PERKS, teaser: "", box: "내일 아침 6시\n또 만나요" },
   ];
   const caption = `${D.long} 내일의 띠별 운세 순위 · 1위 ${rank[0].key}띠\n${FOLLOW_LINE}\n\n1~3위: ${top}\n12위까지 내 띠 순위와 내일 행운의 색·물건을 미리 확인하세요.\n내일 아침 6시에는 띠별 일·돈·관계 운세가 올라와요.\n\n${SAVE_LINE}\n\n${NOTE}\n\n${tagsFor(rows, ["#오늘의띠운세", "#내일의운세", "#띠별운세"])}`;
   ids.push(write(`TP${ymd}`, cards, caption, `✅ ${dayN}일째 밤 출석 체크! 내일 내 띠는 몇 위였나요? 띠와 순위를 남겨 주세요 (예: 말띠 6위)`, [
@@ -132,7 +132,7 @@ ${rank[0].key}띠`, tti: rank[0], line: "내 띠는 몇 위? 피드에서 확인
     const cards = [
       { type: "cover", kicker: `오늘의 띠별 운세 ${mark} ${part[0].key}~${part[5].key}띠`, title: "오늘 내 띠는\n뭘 하면\n좋을까?", sub: inbox.mood, box: "일·돈·관계 한 줄씩\n+ 오늘의 행동 하나", go: "내 띠는 넘겨서 확인", follow: "팔로우하고 내일의 한 줄도 만나세요." },
       ...part.map((r) => ({ type: "tti", tti: r })),
-      { type: "outro", cheer: inbox.cheer, share: inbox.share, title: "팔로우하면\n매일 받는 것", perks: PERKS, teaser: k === 0 ? "말띠~돼지띠는 다음 게시물에 · 오늘 밤 9시 내일 1위 공개" : "쥐띠~뱀띠는 이전 게시물에 · 오늘 밤 9시 내일 1위 공개" },
+      { type: "outro", cheer: inbox.cheer, share: inbox.share, title: "팔로우하면\n매일 받는 것", perks: PERKS, teaser: k === 0 ? "말띠~돼지띠는 다음 게시물에 있어요" : "쥐띠~뱀띠는 이전 게시물에 있어요", box: "오늘 밤 9시\n내일 순위 공개" },
     ];
     const best = [...part].sort((a, b) => b.score - a.score)[0];
     const caption = `${D.long} 오늘의 띠별 운세 ${mark} ${names}\n${FOLLOW_LINE}\n\n${part.map((r) => `${r.key}띠(${r.years.map((y) => String(y.year).slice(2)).join("·")}년생) ${r.core} → ${r.action}`).join("\n")}\n\n오늘 가장 좋은 띠는 ${best.key}띠예요. 카드를 넘겨 일·공부, 금전, 관계 운세와 오늘의 행동, 행운의 색을 확인하세요.\n오늘 밤 9시에는 내일 띠 순위가 공개돼요.\n\n${SAVE_LINE}\n\n${NOTE}\n\n${kw(part)}\n${tagsFor(part, ["#오늘의띠운세", "#오늘의운세", "#띠별운세"])}`;

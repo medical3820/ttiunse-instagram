@@ -27,8 +27,8 @@ try {
     await page.goto(pathToFileURL(tmp).href, { waitUntil: "networkidle" });
     await page.evaluate(() => { document.documentElement.classList.add("render"); document.documentElement.style.setProperty("--card-w", "1080px"); });
     await page.waitForFunction(() => document.documentElement.dataset.ready === "1");
-    const fontOk = await page.evaluate(() => [...document.fonts].some((f) => f.family.replace(/"/g, "") === "Gothic A1" && f.status === "loaded"));
-    if (!fontOk) throw new Error("Gothic A1 글꼴을 불러오지 못했습니다 (Google Fonts 연결 확인).");
+    const fontOk = await page.evaluate(() => [...document.fonts].some((f) => f.family.replace(/"/g, "") === "NanumSquareRound" && f.status === "loaded"));
+    if (!fontOk) throw new Error("나눔스퀘어라운드 글꼴을 불러오지 못했습니다 (jsdelivr 연결 확인).");
 
     const over = () => page.$$eval(".card .in", (els) => els.map((el, i) => (el.scrollHeight > el.clientHeight + 2 ? i + 1 : 0)).filter(Boolean));
     let overflow = await over();
