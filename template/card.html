@@ -59,29 +59,30 @@
 
   /* 띠 상세 */
   .tti .hd{display:flex;align-items:center;gap:4cqw;margin-top:2.6cqw}
-  .tti .hd .nm{font-size:7.2cqw;font-weight:900;letter-spacing:-.05em;line-height:1}
+  .tti .hd .nm{font-size:7.6cqw;font-weight:900;letter-spacing:-.05em;line-height:1}
+  .tti .hd .nm small{font-size:3.4cqw;color:var(--dim);letter-spacing:0;margin-left:1cqw}
   .tti .hd .meta{display:flex;align-items:center;gap:2.4cqw;margin-top:1.8cqw;font-size:4.2cqw}
   .tti .hd .meta .word{font-size:3cqw}
-  .tti .total{margin-top:2.4cqw;background:#fff8ec;border-left:1.2cqw solid var(--c);border-radius:1.6cqw;padding:2.4cqw 3.6cqw;font-size:4.1cqw;font-weight:800;line-height:1.4;text-wrap:balance}
-  .tti .total .tl{font-size:3.9cqw;font-weight:900}
+  .tti .total{margin-top:3.4cqw;background:#fff8ec;border-left:1.2cqw solid var(--c);border-radius:1.6cqw;padding:2.4cqw 3.6cqw;font-size:4.1cqw;font-weight:800;line-height:1.4;text-wrap:balance}
+  .tti .total .tl{font-size:5cqw;font-weight:900;line-height:1.35;text-wrap:balance}
   .tti .total .sm{margin-top:1cqw;font-size:3.2cqw;font-weight:700;color:#4d4239;line-height:1.5;text-wrap:pretty}
-  .tti .total::before{content:"총평";display:block;font-size:2.5cqw;font-weight:900;color:var(--c);margin-bottom:.6cqw}
-  .tti .todo{margin-top:1.3cqw;display:flex;align-items:center;gap:2cqw;font-size:3.4cqw;font-weight:900}
-  .tti .todo span{flex:none;background:#f9d65c;border:.3cqw solid #1f1b18;border-radius:1.2cqw;padding:.3cqw 1.6cqw;font-size:2.7cqw}
-  .tti .yrs{margin-top:1.6cqw;display:flex;flex-direction:column}
-  .tti .yr{display:flex;align-items:center;gap:3.2cqw;padding:1.4cqw 0;border-bottom:.25cqw dashed var(--line)}
+  .tti .total::before{content:"오늘의 한 줄";display:block;font-size:2.5cqw;font-weight:900;color:var(--c);margin-bottom:.6cqw}
+  .tti .todo{margin-top:2.6cqw;display:flex;align-items:center;gap:2.4cqw;font-size:4.2cqw;font-weight:900;background:#fdf1c4;border-radius:2cqw;padding:2.2cqw 3cqw}
+  .tti .todo span{flex:none;background:#f9d65c;border:.3cqw solid #1f1b18;border-radius:1.2cqw;padding:.4cqw 1.8cqw;font-size:3cqw}
+  .tti .yrs{margin-top:2.4cqw;display:flex;flex-direction:column}
+  .tti .yr{display:flex;align-items:center;gap:3.2cqw;padding:2.2cqw 0;border-bottom:.25cqw dashed var(--line)}
   .tti .yr:last-child{border-bottom:0}
-  .tti .yr .y{flex:none;width:14.5cqw;font-size:4.2cqw;font-weight:900;color:var(--c);line-height:1.35}
+  .tti .yr .y{flex:none;width:14.5cqw;font-size:3.7cqw;font-weight:900;color:var(--c);line-height:1.35}
   .tti .yr .y small{display:block;font-size:2.6cqw;color:var(--dim);font-weight:700}
-  .tti .yr .x{font-size:3.45cqw;font-weight:700;line-height:1.45}
+  .tti .yr .x{font-size:3.85cqw;font-weight:700;line-height:1.45}
   .tti .lk{margin-top:auto;display:grid;grid-template-columns:1.15fr 1.25fr .9fr .9fr;gap:1.4cqw}
   .tti .lk > div{background:var(--paper2);border-radius:2cqw;padding:2cqw 2.2cqw;display:flex;align-items:center;gap:1.6cqw;min-width:0}
   .tti .lk > div > span:last-child{min-width:0}
   .tti .lk .k{font-size:2.4cqw;font-weight:800;color:var(--dim)}
   .tti .lk .v{margin-top:.6cqw;font-size:3.5cqw;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .sw{flex:none;width:5cqw;height:5cqw;border-radius:50%;background:var(--sw);box-shadow:inset 0 0 0 .3cqw rgba(0,0,0,.15)}
-  .squeeze.tti .yr .x{font-size:3.35cqw} .squeeze.tti .total .sm{font-size:3.15cqw}
-  .squeeze.tti .yr{padding:1.2cqw 0}
+  .squeeze.tti .yr .x{font-size:3.5cqw} .squeeze.tti .total .tl{font-size:4.5cqw}
+  .squeeze.tti .yr{padding:1.4cqw 0}
 
   /* 순위 */
   .h2{font-size:6.4cqw;font-weight:900;letter-spacing:-.045em;margin-top:3.4cqw}
@@ -124,13 +125,14 @@
   .outro{background:var(--night);color:#f5eee1}
   .outro::before{border-color:#4a3e36}
   .outro .top,.outro .foot{color:#bfae9c} .outro .top b{color:var(--gold)}
-  .outro h1{font-size:8.2cqw;font-weight:900;line-height:1.25;letter-spacing:-.045em;margin:5cqw 0 0;white-space:pre-line}
+  .outro h1{font-size:6.6cqw;font-weight:900;line-height:1.25;letter-spacing:-.045em;margin:3.6cqw 0 0;white-space:pre-line}
   .outro ul{list-style:none;padding:0;margin:6cqw 0 0;font-size:4.2cqw;font-weight:700;line-height:1.9;color:#e8dccb}
   .outro ul li::before{content:"·  ";color:var(--gold)}
-  .outro .perks{margin-top:4cqw;display:flex;flex-direction:column;gap:1.5cqw}
+  .outro .cheer{margin-top:4.6cqw;font-family:Jua,var(--f);font-size:5.6cqw;line-height:1.35;color:#f9d65c}
+  .outro .perks{margin-top:3cqw;display:flex;flex-direction:column;gap:1.5cqw}
   .outro .pk{display:flex;align-items:center;gap:3cqw;background:var(--night2);border-radius:2.2cqw;padding:2.2cqw 3.2cqw;font-size:4cqw;font-weight:800;color:#f5eee1}
   .outro .pt{flex:none;min-width:17cqw;text-align:center;background:var(--gold);color:var(--night);font-weight:900;font-size:3.2cqw;border-radius:1.4cqw;padding:.8cqw 1.6cqw}
-  .outro .teaser{margin-top:3.4cqw;font-size:3.5cqw;font-weight:800;color:var(--gold);line-height:1.5;white-space:pre-line}
+  .outro .teaser{margin-top:2.8cqw;font-size:3.3cqw;font-weight:800;color:var(--gold);line-height:1.5;white-space:pre-line}
   .outro .follow{margin-top:auto;align-self:stretch;text-align:center;background:var(--gold);color:var(--night);font-size:4.4cqw;font-weight:900;padding:2cqw 4.4cqw;border-radius:2cqw;margin-bottom:1cqw}
 </style>
 </head>
@@ -162,10 +164,11 @@
     if (c.type === "tti") {
       const t = c.tti, L = t.lucky;
       return `<section class="card tti" style="--c:${t.color}"><div class="in">${top()}
-        <div class="hd">${medal(t, "12cqw")}<div><div class="nm">${t.key}띠</div>
+        <div class="hd">${medal(t, "12cqw")}<div><div class="nm">${t.key}띠 <small class="num">${t.years.map((y) => String(y.year).slice(2)).join("·")}년생</small></div>
           <div class="meta"><span class="stars">${st(t.stars)}</span><span class="word">${esc(t.word)}</span></div></div></div>
-        <div class="total"><div class="tl">${esc(t.total)}</div><div class="sm">${esc(t.summary)}</div><div class="todo"><span>오늘 할 일</span>${esc(t.todo)}</div></div>
-        <div class="yrs">${t.years.map((y) => `<div class="yr"><div class="y num">${y.year}<small>년생</small></div><div class="x">${esc(y.text)}</div></div>`).join("")}</div>
+        <div class="total"><div class="tl">${esc(t.core)}</div></div>
+        <div class="yrs">${[["일·공부", t.work], ["금전", t.money], ["관계", t.relation]].map(([k, x]) => `<div class="yr"><div class="y">${k}</div><div class="x">${esc(x)}</div></div>`).join("")}</div>
+        <div class="todo"><span>오늘의 행동</span>${esc(t.action)}</div>
         <div class="lk">
           <div><span class="sw" style="--sw:${L.color.hex}"></span><span><div class="k">행운의 색</div><div class="v">${esc(L.color.name)}</div></span></div>
           <div><span><div class="k">행운의 물건</div><div class="v">${esc(L.item)}</div></span></div>
@@ -191,9 +194,9 @@
         <div class="nx"><span>다음 도착</span>${esc(c.next)}</div>
         <div class="foot"><span><b class="fh">${esc(H.handle)}</b> · 매일 같은 시간, 내 띠 운세</span><span class="num">${H.dayN}일째</span></div></div></section>`;
     }
-    return `<section class="card outro"><div class="in">${top()}<h1>${esc(c.title)}</h1>
+    return `<section class="card outro"><div class="in">${top()}${c.cheer ? `<div class="cheer">${esc(c.cheer)}</div>` : ""}<h1>${esc(c.title)}</h1>
       <div class="perks">${c.perks.map(([t, x]) => `<div class="pk"><span class="pt">${esc(t)}</span><span>${esc(x)}</span></div>`).join("")}</div>
-      <div class="teaser">${esc(c.teaser)}</div>
+      <div class="teaser">${c.share ? esc(c.share) + "\n" : ""}${esc(c.teaser)}</div>
       <span class="follow">${esc(H.handle)} 팔로우하기</span>${foot(i, n)}</div></section>`;
   }).join("");
   document.getElementById("deck").innerHTML = html;
