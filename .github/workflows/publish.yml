@@ -99,7 +99,9 @@ jobs:
           RAW_BASE: https://raw.githubusercontent.com/${{ github.repository }}/main
         run: |
           touch published.txt
-          for id in $(echo "${{ steps.build.outputs.ids }}" | tr ' ' '\n' | sort -r); do   # ②를 먼저 올려 ①이 피드 맨 위
+          ALL=$(echo "${{ steps.build.outputs.ids }}" | tr ' ' '\n')
+          # 게시물은 ②→① 순서(①이 피드 맨 위), 스토리(_S)는 마지막 — 스토리 동그라미가 '지금 도착' 신호
+          for id in $(echo "$ALL" | grep -v '_S$' | sort -r) $(echo "$ALL" | grep '_S$'); do
             if grep -q "^$id " published.txt; then echo "$id 이미 발행됨"; continue; fi
             python3 scripts/publish.py "$id"; sleep 30
           done
