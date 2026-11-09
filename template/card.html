@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>오늘의 띠운세 카드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;800;900&display=swap">
+<style>
+  /* 한지 크림 바탕 + 먹색 글자 + 띠마다 다른 포인트 색. 1080x1350(4:5), 치수는 cqw(카드 너비 1%). */
+  :root{
+    --paper:#f5eee1; --paper2:#ece2cf; --ink:#2a2320; --dim:#7a6e63; --line:#dccfb8;
+    --night:#231d1a; --night2:#342b26; --gold:#e9c46a;
+    --f:"Gothic A1","Noto Sans CJK KR","Noto Sans KR",system-ui,sans-serif;
+    --card-w:100%; color-scheme:light;
+  }
+  *{box-sizing:border-box}
+  body{background:#e4e0da;margin:0;font-family:var(--f);color:var(--ink)}
+  .deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));gap:20px;max-width:1180px;margin:0 auto;padding:24px 16px}
+  html.render body{background:#fff} html.render .deck{display:block;padding:0;max-width:none}
+  .card{width:var(--card-w);aspect-ratio:4/5;container-type:inline-size;position:relative;overflow:hidden;background:var(--paper);
+    word-break:keep-all;overflow-wrap:break-word;box-shadow:0 8px 26px rgba(0,0,0,.12)}
+  html.render .card{box-shadow:none}
+  .in{position:absolute;inset:0;display:flex;flex-direction:column;padding:6.4cqw 6.4cqw 5.6cqw}
+  .card::before{content:"";position:absolute;inset:2.4cqw;border:.3cqw solid var(--line);border-radius:2cqw;pointer-events:none}
+  .num{font-variant-numeric:tabular-nums}
+
+  .top{display:flex;justify-content:space-between;align-items:center;font-size:3cqw;font-weight:800;color:var(--dim)}
+  .top b{color:var(--ink);font-weight:900;letter-spacing:-.02em}
+  .foot{margin-top:auto;display:flex;justify-content:space-between;font-size:2.7cqw;font-weight:700;color:var(--dim);padding-top:2cqw}
+
+  .medal{flex:none;width:var(--s,16cqw);height:var(--s,16cqw);border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;
+    font-size:calc(var(--s,16cqw)*.5);font-weight:900;font-family:"Noto Serif CJK KR","Noto Serif KR",serif;box-shadow:inset 0 0 0 .5cqw rgba(255,255,255,.25)}
+  .stars{color:#e0a526;letter-spacing:.08em;white-space:nowrap}
+  .stars i{font-style:normal;color:#d9cdb8}
+  .word{display:inline-block;background:var(--c);color:#fff;font-weight:900;border-radius:5cqw;padding:.6cqw 2.4cqw;white-space:nowrap}
+
+  /* 표지 */
+  .cover{background:var(--night);color:#f5eee1}
+  .cover::before{border-color:#4a3e36}
+  .cover .top,.cover .foot{color:#bfae9c} .cover .top b{color:var(--gold)}
+  .cover .bigdate{margin-top:8cqw;display:flex;align-items:baseline;gap:3cqw}
+  .cover .bigdate .d{font-size:17cqw;font-weight:900;letter-spacing:-.05em;line-height:1}
+  .cover .bigdate .w{font-size:7cqw;font-weight:900;color:var(--gold)}
+  .cover .kicker{margin-top:4cqw;display:inline-block;align-self:flex-start;background:var(--gold);color:var(--night);font-weight:900;font-size:3.6cqw;padding:1cqw 2.8cqw;border-radius:1.2cqw}
+  .cover h1{font-size:8.6cqw;font-weight:900;line-height:1.22;letter-spacing:-.045em;margin:3.4cqw 0 0;white-space:pre-line}
+  .cover .sub{font-size:3.4cqw;color:#bfae9c;font-weight:700;margin-top:2.4cqw}
+  .cover .ring{margin-top:auto;display:grid;grid-template-columns:repeat(6,1fr);gap:2cqw;text-align:center;font-size:2.9cqw;font-weight:800;color:#e8dccb}
+  .cover .ring .medal{--s:11.6cqw;margin:0 auto 1.4cqw}
+  .cover .hero{margin-top:auto;display:flex;align-items:center;gap:4cqw;background:var(--night2);border-radius:3cqw;padding:3.6cqw 4cqw}
+  .cover .hero .medal{--s:18cqw}
+  .cover .hero .t{font-size:3cqw;color:#bfae9c;font-weight:800}
+  .cover .hero .n{font-size:7cqw;font-weight:900;margin:.6cqw 0 1cqw}
+  .cover .hero .stars{font-size:4.6cqw} .cover .hero .stars i{color:#5a4c42}
+  .cover .wm{position:absolute;right:-6cqw;top:16cqw;font-size:62cqw;line-height:1;color:rgba(255,255,255,.035);font-family:"Noto Serif CJK KR",serif;font-weight:900;pointer-events:none}
+
+  /* 띠 상세 */
+  .tti .hd{display:flex;align-items:center;gap:4cqw;margin-top:3.6cqw}
+  .tti .hd .nm{font-size:8.6cqw;font-weight:900;letter-spacing:-.05em;line-height:1}
+  .tti .hd .meta{display:flex;align-items:center;gap:2.4cqw;margin-top:1.8cqw;font-size:4.2cqw}
+  .tti .hd .meta .word{font-size:3cqw}
+  .tti .total{margin-top:3.6cqw;background:#fff8ec;border-left:1.2cqw solid var(--c);border-radius:1.6cqw;padding:2.4cqw 3.6cqw;font-size:4.1cqw;font-weight:800;line-height:1.4;text-wrap:balance}
+  .tti .yrs{margin-top:2.4cqw;display:flex;flex-direction:column}
+  .tti .yr{display:flex;align-items:center;gap:3.2cqw;padding:2.2cqw 0;border-bottom:.25cqw dashed var(--line)}
+  .tti .yr:last-child{border-bottom:0}
+  .tti .yr .y{flex:none;width:14.5cqw;font-size:4.2cqw;font-weight:900;color:var(--c);line-height:1.35}
+  .tti .yr .y small{display:block;font-size:2.6cqw;color:var(--dim);font-weight:700}
+  .tti .yr .x{font-size:3.75cqw;font-weight:700;line-height:1.45}
+  .tti .lk{margin-top:auto;display:grid;grid-template-columns:1.15fr 1.25fr .9fr .9fr;gap:1.4cqw}
+  .tti .lk > div{background:var(--paper2);border-radius:2cqw;padding:2cqw 2.2cqw;display:flex;align-items:center;gap:1.6cqw;min-width:0}
+  .tti .lk > div > span:last-child{min-width:0}
+  .tti .lk .k{font-size:2.4cqw;font-weight:800;color:var(--dim)}
+  .tti .lk .v{margin-top:.6cqw;font-size:3.5cqw;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sw{flex:none;width:5cqw;height:5cqw;border-radius:50%;background:var(--sw);box-shadow:inset 0 0 0 .3cqw rgba(0,0,0,.15)}
+  .squeeze .tti .yr .x,.squeeze.tti .yr .x{font-size:3.45cqw}
+  .squeeze.tti .yr{padding:1.8cqw 0}
+
+  /* 순위 */
+  .h2{font-size:6.4cqw;font-weight:900;letter-spacing:-.045em;margin-top:3.4cqw}
+  .rank .list{margin-top:2.6cqw;display:flex;flex-direction:column;gap:1.4cqw}
+  .rank .r{display:flex;align-items:center;gap:3cqw;background:#fffaf1;border-radius:2.4cqw;padding:1.5cqw 3cqw}
+  .rank .r .no{width:7cqw;font-size:5.4cqw;font-weight:900;color:var(--dim);text-align:center}
+  .rank .r.best .no{color:#c0392b}
+  .rank .r .medal{--s:9.2cqw}
+  .rank .r .mid{flex:1;min-width:0}
+  .rank .r .n{font-size:4.6cqw;font-weight:900;color:var(--ink)}
+  .rank .r .tx{font-size:2.95cqw;font-weight:700;color:var(--dim);margin-top:.5cqw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rank .r .sc{text-align:right;font-size:3.4cqw;display:flex;align-items:center;gap:2cqw}
+  .rank .r .sc .word{font-size:2.7cqw}
+
+  /* 행운표 */
+  .lucky .grid{margin-top:2.6cqw;display:grid;grid-template-columns:1fr 1fr;gap:1.3cqw}
+  .lucky .g{display:flex;align-items:center;gap:2.2cqw;background:#fffaf1;border-radius:2cqw;padding:1.4cqw 2.4cqw;min-width:0}
+  .lucky .g .medal{--s:8.4cqw}
+  .lucky .g .n{font-size:3.4cqw;font-weight:900}
+  .lucky .g .it b{color:var(--ink);font-weight:900}
+  .lucky .g .it{font-size:3cqw;font-weight:700;color:var(--dim);margin-top:.3cqw;line-height:1.3}
+  .lucky .g .sw{width:5cqw;height:5cqw;margin-left:auto}
+  .lucky .g .mid{min-width:0}
+
+  /* 마무리 */
+  .outro{background:var(--night);color:#f5eee1}
+  .outro::before{border-color:#4a3e36}
+  .outro .top,.outro .foot{color:#bfae9c} .outro .top b{color:var(--gold)}
+  .outro h1{font-size:9cqw;font-weight:900;line-height:1.25;letter-spacing:-.045em;margin:18cqw 0 0;white-space:pre-line}
+  .outro ul{list-style:none;padding:0;margin:6cqw 0 0;font-size:4.2cqw;font-weight:700;line-height:1.9;color:#e8dccb}
+  .outro ul li::before{content:"·  ";color:var(--gold)}
+  .outro .follow{margin-top:auto;align-self:flex-start;background:var(--gold);color:var(--night);font-size:4.4cqw;font-weight:900;padding:2.2cqw 4.4cqw;border-radius:2cqw}
+</style>
+</head>
+<body>
+<div class="deck" id="deck"></div>
+<script id="data" type="application/json">/*DATA*/</script>
+<script>
+(() => {
+  let data;
+  try { data = JSON.parse(document.getElementById("data").textContent); } catch { return; }
+  const H = data.head;
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  const st = (n) => "★".repeat(n) + `<i>${"★".repeat(5 - n)}</i>`;
+  const medal = (t, s) => `<div class="medal" style="--c:${t.color}${s ? `;--s:${s}` : ""}">${t.hanja}</div>`;
+  const top = (dark) => `<div class="top"><b>${esc(H.brand)}</b><span class="num">${H.md} ${H.wd}</span></div>`;
+  const foot = (i, n) => `<div class="foot"><span>${esc(H.handle)}</span><span class="num">${i}/${n}</span></div>`;
+  const n = data.cards.length;
+
+  const html = data.cards.map((c, k) => {
+    const i = k + 1;
+    if (c.type === "cover") {
+      const bottom = c.list
+        ? `<div class="ring">${c.list.map((t) => `<div>${medal(t)}${t.key}띠</div>`).join("")}</div>`
+        : `<div class="hero">${medal(c.tti)}<div><div class="t">내일 1위</div><div class="n">${c.tti.key}띠</div><div class="stars">${st(c.tti.stars)}</div></div></div>`;
+      return `<section class="card cover"><div class="wm">${(c.tti || c.list[0]).hanja}</div><div class="in">${top()}
+        <div class="bigdate"><span class="d num">${H.md}</span><span class="w">${H.wd}요일</span></div>
+        <span class="kicker">${esc(c.kicker)}</span><h1>${esc(c.title)}</h1><div class="sub">${esc(c.sub)}</div>${bottom}${foot(i, n)}</div></section>`;
+    }
+    if (c.type === "tti") {
+      const t = c.tti, L = t.lucky;
+      return `<section class="card tti" style="--c:${t.color}"><div class="in">${top()}
+        <div class="hd">${medal(t, "15.5cqw")}<div><div class="nm">${t.key}띠</div>
+          <div class="meta"><span class="stars">${st(t.stars)}</span><span class="word">${esc(t.word)}</span></div></div></div>
+        <div class="total">${esc(t.total)}</div>
+        <div class="yrs">${t.years.map((y) => `<div class="yr"><div class="y num">${y.year}<small>년생</small></div><div class="x">${esc(y.text)}</div></div>`).join("")}</div>
+        <div class="lk">
+          <div><span class="sw" style="--sw:${L.color.hex}"></span><span><div class="k">행운의 색</div><div class="v">${esc(L.color.name)}</div></span></div>
+          <div><span><div class="k">행운의 물건</div><div class="v">${esc(L.item)}</div></span></div>
+          <div><span><div class="k">숫자</div><div class="v num">${L.numbers.join(" · ")}</div></span></div>
+          <div><span><div class="k">방향</div><div class="v">${esc(L.direction)}</div></span></div>
+        </div>${foot(i, n)}</div></section>`;
+    }
+    if (c.type === "rank") {
+      return `<section class="card rank"><div class="in">${top()}<div class="h2">${esc(c.title)}</div>
+        <div class="list">${c.list.map((t) => `<div class="r${t.rank <= 3 ? " best" : ""}"><div class="no num">${t.rank}</div>${medal(t)}
+          <div class="mid"><div class="n">${t.key}띠</div><div class="tx num">${t.years.map((y) => String(y.year).slice(2)).join(" · ")}년생</div></div>
+          <div class="sc"><div class="stars">${st(t.stars)}</div><span class="word" style="--c:${t.color}">${esc(t.word)}</span></div></div>`).join("")}</div>${foot(i, n)}</div></section>`;
+    }
+    if (c.type === "lucky") {
+      return `<section class="card lucky"><div class="in">${top()}<div class="h2">${esc(c.title)}</div>
+        <div class="grid">${c.list.map((t) => `<div class="g">${medal(t)}<div class="mid"><div class="n">${t.key}띠</div><div class="it"><b>${esc(t.lucky.color.name)}</b> · ${esc(t.lucky.item)}</div></div><span class="sw" style="--sw:${t.lucky.color.hex}"></span></div>`).join("")}</div>${foot(i, n)}</div></section>`;
+    }
+    return `<section class="card outro"><div class="in">${top()}<h1>${esc(c.title)}</h1><ul>${c.lines.map((l) => `<li>${esc(l)}</li>`).join("")}</ul>
+      <span class="follow">${esc(H.handle)} 팔로우</span>${foot(i, n)}</div></section>`;
+  }).join("");
+  document.getElementById("deck").innerHTML = html;
+  document.fonts.ready.then(() => (document.documentElement.dataset.ready = "1"));
+})();
+</script>
+</body>
+</html>

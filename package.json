@@ -1,0 +1,9 @@
+{
+  "name": "ttiunse-instagram",
+  "private": true,
+  "type": "module",
+  "description": "오늘의 띠운세 — 매일 띠별·년생별 운세 카드 자동 생성·발행",
+  "dependencies": {
+    "playwright": "1.55.0"
+  }
+}

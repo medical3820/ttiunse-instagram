@@ -1,0 +1,111 @@
+name: 오늘의 띠운세 발행
+
+# 흐름
+#  밤 : 예약 작업(20:40 KST)이 inbox/<내일날짜>.json(운세 문장) push → 'pm' → 21:00까지 기다렸다 '내일의 띠별 운세 순위' 1개 발행
+#  아침: 예약 작업(05:50 KST)이 inbox/<오늘날짜>.go push → 'am' → 06:00까지 기다렸다 년생별 상세 2개(②→① 순서, 피드 맨 위가 ①) 발행
+# 행운의 색·물건·숫자·방향은 날짜로 정해져서 밤 순위와 아침 상세가 항상 같다.
+# GitHub 예약(cron)은 몇 시간씩 늦어 시간 맞춘 발행에 쓸 수 없으므로 push 로 시작한다.
+# 커밋 메시지에 [연습] 이 있으면 카드만 만들고 올리지 않는다.
+
+on:
+  push:
+    paths: ["inbox/*.json", "inbox/*.go"]
+  workflow_dispatch:
+    inputs:
+      date: { description: "운세 날짜 YYYY-MM-DD", required: true }
+      mode: { description: "am(년생별 2개) 또는 pm(순위 1개)", required: true, default: "am" }
+      publish: { description: "true 면 실제 발행", required: false, default: "false" }
+
+concurrency: { group: ttiunse, cancel-in-progress: false }
+permissions: { contents: write }
+
+jobs:
+  run:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      PUBLISH: ${{ (github.event_name == 'push' && !contains(github.event.head_commit.message, '[연습]')) || github.event.inputs.publish == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, fetch-depth: 2 }
+
+      - name: 무엇을 만들지 정하기
+        id: job
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "date=${{ github.event.inputs.date }}" >> "$GITHUB_OUTPUT"; echo "mode=${{ github.event.inputs.mode }}" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          new=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- 'inbox/*.json' 'inbox/*.go')
+          f=$(echo "$new" | grep '\.go$' | tail -1); [ -z "$f" ] && f=$(echo "$new" | tail -1)   # .go 가 있으면 아침이 우선
+          [ -z "$f" ] && { echo "새 inbox 파일 없음 — 건너뜀"; echo "mode=none" >> "$GITHUB_OUTPUT"; exit 0; }
+          d=$(basename "$f" | cut -c1-10)
+          case "$f" in *.go) m=am;; *) m=pm;; esac
+          echo "date=$d" >> "$GITHUB_OUTPUT"; echo "mode=$m" >> "$GITHUB_OUTPUT"; echo "대상: $d $m"
+
+      - uses: actions/setup-node@v4
+        if: steps.job.outputs.mode != 'none'
+        with: { node-version: 22 }
+
+      - name: 도구 설치 (명령마다 7분 제한, 최대 3번 재시도)
+        if: steps.job.outputs.mode != 'none'
+        timeout-minutes: 15
+        run: |
+          try() { for i in 1 2 3; do timeout 420 "$@" && return 0; echo "다시 시도 $i: $*"; sleep 5; done; return 1; }
+          try npm install --no-audit --no-fund
+          try npx playwright install --with-deps chromium
+          try sudo apt-get install -y fonts-noto-cjk > /dev/null
+
+      - name: 토큰·계정 확인
+        if: steps.job.outputs.mode != 'none' && env.PUBLISH == 'true'
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          EXPECT_USERNAME: ${{ vars.IG_USERNAME }}
+        run: node scripts/check_token.mjs
+
+      - name: 카드 만들기·검사
+        id: build
+        if: steps.job.outputs.mode != 'none'
+        run: node scripts/build.mjs "${{ steps.job.outputs.date }}" "${{ steps.job.outputs.mode }}"
+
+      - name: 이미지 렌더링
+        if: steps.job.outputs.mode != 'none'
+        run: node scripts/render.mjs ${{ steps.build.outputs.ids }}
+
+      - name: 카드 이미지 보관
+        if: steps.job.outputs.mode != 'none'
+        uses: actions/upload-artifact@v4
+        with: { name: "cards-${{ steps.job.outputs.date }}-${{ steps.job.outputs.mode }}", path: posts/ }
+
+      - name: 저장소에 올리기 (인스타가 공개 URL에서 이미지를 가져감)
+        if: steps.job.outputs.mode != 'none' && env.PUBLISH == 'true'
+        run: |
+          git config user.name "github-actions[bot]"; git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add posts/; git commit -m "카드 ${{ steps.build.outputs.ids }}" || true
+          git pull --rebase origin main; git push origin main; sleep 20
+
+      - name: 발행 시각까지 기다리기 (밤 21:00 / 아침 06:00 KST, 최대 40분)
+        if: steps.job.outputs.mode != 'none' && env.PUBLISH == 'true'
+        run: |
+          if [ "${{ steps.job.outputs.mode }}" = "pm" ]; then T="21:00"; else T="06:00"; fi
+          now=$(TZ=Asia/Seoul date +%s); tgt=$(TZ=Asia/Seoul date -d "today $T" +%s); w=$((tgt-now))
+          if [ $w -gt 0 ] && [ $w -le 2400 ]; then echo "$w 초 기다림"; sleep $w; else echo "기다리지 않음 ($w 초)"; fi
+
+      - name: 인스타 발행
+        if: steps.job.outputs.mode != 'none' && env.PUBLISH == 'true'
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          RAW_BASE: https://raw.githubusercontent.com/${{ github.repository }}/main
+        run: |
+          touch published.txt
+          for id in $(echo "${{ steps.build.outputs.ids }}" | tr ' ' '\n' | sort -r); do   # ②를 먼저 올려 ①이 피드 맨 위
+            if grep -q "^$id " published.txt; then echo "$id 이미 발행됨"; continue; fi
+            python3 scripts/publish.py "$id"; sleep 30
+          done
+
+      - name: 발행 기록 올리기
+        if: always() && steps.job.outputs.mode != 'none' && env.PUBLISH == 'true'
+        run: |
+          git add published.txt; git diff --cached --quiet && exit 0
+          git commit -m "발행 기록 ${{ steps.build.outputs.ids }}"; git pull --rebase origin main; git push origin main
