@@ -33,6 +33,7 @@ const rows = TTI.map((t, i) => {
   scores.push(sc);
   if (!v.total || len(v.total) > 34) errs.push(`${t.key}띠 총운 길이 ${len(v.total)}자 (1~34자)`);
   if (!v.summary || len(v.summary) < 30 || len(v.summary) > 75) errs.push(`${t.key}띠 총평 길이 ${len(v.summary)}자 (30~75자, 한두 문장)`);
+  if (!v.todo || len(v.todo) > 18) errs.push(`${t.key}띠 오늘 할 일 길이 ${len(v.todo)}자 (1~18자)`);
   if (!v.word || len(v.word) > 4) errs.push(`${t.key}띠 키워드 '${v.word}' (1~4자)`);
   const years = yearsFor(i, base).map((y) => {
     const txt = v.years?.[y];
@@ -40,8 +41,8 @@ const rows = TTI.map((t, i) => {
     else if (len(txt) > 48) errs.push(`${t.key}띠 ${y}년생 ${len(txt)}자 (48자 이하)`);
     return { year: y, text: txt || "" };
   });
-  for (const s of [v.total, v.summary, v.word, ...years.map((y) => y.text)]) if (BANNED.test(s || "")) errs.push(`${t.key}띠 금지 표현: "${s}"`);
-  return { ...t, idx: i, score: sc, stars: stars(sc), total: v.total, summary: v.summary, word: v.word, years };
+  for (const s of [v.total, v.summary, v.todo, v.word, ...years.map((y) => y.text)]) if (BANNED.test(s || "")) errs.push(`${t.key}띠 금지 표현: "${s}"`);
+  return { ...t, idx: i, score: sc, stars: stars(sc), total: v.total, summary: v.summary, todo: v.todo, word: v.word, years };
 });
 if (new Set(scores).size !== scores.length) errs.push("띠 점수가 겹침 (순위를 매길 수 있게 모두 달라야 함)");
 if (errs.length) { console.error("검사 실패:\n - " + errs.join("\n - ")); process.exit(2); }
@@ -104,7 +105,7 @@ const kw = (part) => part.map((r) => `${r.key}띠 운세`).join(" · ");
 if (mode === "pm") {
   const top = rank.slice(0, 3).map((r) => `${r.key}띠`).join("·");
   const cards = [
-    { type: "cover", kicker: "내일의 띠별 운세", title: `내일 운이 좋은 띠\n1위는 ${rank[0].key}띠`, sub: `${D.long} · 12띠 순위와 행운의 색`, tti: rank[0] },
+    { type: "cover", kicker: "매일 밤 9시, 내일 순위 먼저", title: `내일 운 좋은 띠\n1위는\n${rank[0].key}띠!`, sub: `${D.long} · 12띠 순위와 행운의 색·물건`, box: "12띠 순위\n+ 행운의 색·물건", go: "내 띠 순위는 넘겨서 확인", follow: "팔로우하고 아침 6시 년생별 운세도 받으세요." },
     { type: "rank", title: "띠별 운세 순위 1~6위", list: rank.slice(0, 6) },
     { type: "rank", title: "띠별 운세 순위 7~12위", list: rank.slice(6) },
     { type: "lucky", title: "띠별 행운의 색·물건", list: rows },
@@ -125,7 +126,7 @@ ${rank[0].key}띠`, tti: rank[0], line: "내 띠는 몇 위? 피드에서 확인
     const no = k + 1, mark = "①②"[k];
     const names = part.map((r) => `${r.key}띠`).join("·");
     const cards = [
-      { type: "cover", kicker: `오늘의 띠별 운세 ${mark}`, title: `${part[0].key}띠부터 ${part[5].key}띠까지\n년생별 오늘 운세`, sub: `${D.long} · ${gj.ko}`, list: part },
+      { type: "cover", kicker: `매일 아침 6시, 내 띠부터 ${mark}`, title: "오늘 내 띠는\n뭘 하면\n좋을까?", sub: `${part.map((r) => r.key + "띠").join(" · ")} · ${gj.ko}`, box: "띠별 한 줄 운세\n+ 오늘 할 일 하나", go: "내 띠는 넘겨서 확인", follow: "팔로우하고 내일의 한 줄도 만나세요." },
       ...part.map((r) => ({ type: "tti", tti: r })),
       { type: "outro", title: "팔로우하면\n매일 받는 것", perks: PERKS, teaser: k === 0 ? "말띠~돼지띠는 다음 게시물에\n오늘 밤 9시, 내일 1위 띠 공개" : "쥐띠~뱀띠는 이전 게시물에\n오늘 밤 9시, 내일 1위 띠 공개" },
     ];
@@ -133,7 +134,7 @@ ${rank[0].key}띠`, tti: rank[0], line: "내 띠는 몇 위? 피드에서 확인
     const caption = `${D.long} 오늘의 띠별 운세 ${mark} ${names}\n${FOLLOW_LINE}\n\n${part.map((r) => `${r.key}띠 ${r.years.map((y) => String(y.year).slice(2)).join("·")}년생 · ${r.total}`).join("\n")}\n\n오늘 가장 좋은 띠는 ${best.key}띠예요. 카드를 넘겨 내 년생 운세와 행운의 색·물건·숫자·방향을 확인하세요.\n오늘 밤 9시에는 내일 띠 순위가 공개돼요.\n\n${SAVE_LINE}\n\n${NOTE}\n\n${kw(part)}\n${tagsFor(part, ["#오늘의띠운세", "#오늘의운세", "#띠별운세"])}`;
     ids.push(write(`TA${ymd}_${no}`, cards, caption, `✅ ${dayN}일째 아침 출석 체크! 내 띠 + 오늘 다짐 한 단어를 남겨 주세요 (예: 말띠 추진)`, [
       `${D.long} 오늘의 띠별 운세 ${mark}. ${names}`,
-      ...part.map((r) => `${r.key}띠 오늘 운세 별 다섯 개 중 ${r.stars}개. ${r.total} 총평: ${r.summary} ${r.years.map((y) => `${y.year}년생 ${y.text}`).join(" ")} 행운의 색 ${r.lucky.color.name}, 물건 ${r.lucky.item}, 숫자 ${r.lucky.numbers.join(" ")}, 방향 ${r.lucky.direction}`),
+      ...part.map((r) => `${r.key}띠 오늘 운세 별 다섯 개 중 ${r.stars}개. ${r.total} 총평: ${r.summary} 오늘 할 일: ${r.todo}. ${r.years.map((y) => `${y.year}년생 ${y.text}`).join(" ")} 행운의 색 ${r.lucky.color.name}, 물건 ${r.lucky.item}, 숫자 ${r.lucky.numbers.join(" ")}, 방향 ${r.lucky.direction}`),
       "팔로우하면 매일 아침 6시 년생별 운세, 밤 9시 내일 띠 순위를 받아 볼 수 있습니다.",
     ]));
   });

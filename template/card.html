@@ -6,7 +6,8 @@
 <title>오늘의 띠운세 카드</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;800;900&family=Jua&display=swap">
+<script src="../template/mascot.js"></script>
 <style>
   /* 한지 크림 바탕 + 먹색 글자 + 띠마다 다른 포인트 색. 1080x1350(4:5), 치수는 cqw(카드 너비 1%). */
   :root{
@@ -25,10 +26,10 @@
   .in{position:absolute;inset:0;display:flex;flex-direction:column;padding:6.4cqw 6.4cqw 5.6cqw}
   .card::before{content:"";position:absolute;inset:2.4cqw;border:.3cqw solid var(--line);border-radius:2cqw;pointer-events:none}
   .num{font-variant-numeric:tabular-nums}
-  .foot .fh{color:var(--ink);font-weight:900} .cover .foot .fh,.outro .foot .fh{color:var(--gold)}
+  .foot .fh{color:var(--ink);font-weight:900} .outro .foot .fh{color:var(--gold)}
 
   .top{display:flex;justify-content:space-between;align-items:center;font-size:3cqw;font-weight:800;color:var(--dim)}
-  .top b{color:var(--ink);font-weight:900;letter-spacing:-.02em}
+  .top b{color:var(--ink);font-family:Jua,var(--f);font-weight:400;font-size:4.2cqw;letter-spacing:0}
   .foot{margin-top:auto;display:flex;justify-content:space-between;gap:2cqw;font-size:2.55cqw;font-weight:700;color:var(--dim);padding-top:2cqw}
 
   .medal{flex:none;width:var(--s,16cqw);height:var(--s,16cqw);border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;
@@ -38,42 +39,41 @@
   .word{display:inline-block;background:var(--c);color:#fff;font-weight:900;border-radius:5cqw;padding:.6cqw 2.4cqw;white-space:nowrap}
 
   /* 표지 */
-  .cover{background:var(--night);color:#f5eee1}
-  .cover::before{border-color:#4a3e36}
-  .cover .top,.cover .foot{color:#bfae9c} .cover .top b{color:var(--gold)}
-  .cover .bigdate{margin-top:8cqw;display:flex;align-items:baseline;gap:3cqw}
-  .cover .bigdate .d{font-size:17cqw;font-weight:900;letter-spacing:-.05em;line-height:1}
-  .cover .bigdate .w{font-size:7cqw;font-weight:900;color:var(--gold)}
-  .cover .habit{margin-top:4cqw;display:flex;flex-wrap:wrap;align-items:center;gap:1.6cqw}
-  .cover .clock,.cover .dayn{font-size:3cqw;font-weight:900;border:.3cqw solid #6b5b4f;color:#e8dccb;padding:.8cqw 2cqw;border-radius:1.2cqw}
-  .cover .dayn{border-color:var(--gold);color:var(--gold)}
-  .cover .kicker{display:inline-block;background:var(--gold);color:var(--night);font-weight:900;font-size:3.6cqw;padding:1cqw 2.8cqw;border-radius:1.2cqw}
-  .cover h1{font-size:8.6cqw;font-weight:900;line-height:1.22;letter-spacing:-.045em;margin:3.4cqw 0 0;white-space:pre-line}
-  .cover .sub{font-size:3.4cqw;color:#bfae9c;font-weight:700;margin-top:2.4cqw}
-  .cover .ring{margin-top:auto;display:grid;grid-template-columns:repeat(6,1fr);gap:2cqw;text-align:center;font-size:2.9cqw;font-weight:800;color:#e8dccb}
-  .cover .ring .medal{--s:11.6cqw;margin:0 auto 1.4cqw}
-  .cover .hero{margin-top:auto;display:flex;align-items:center;gap:4cqw;background:var(--night2);border-radius:3cqw;padding:3.6cqw 4cqw}
-  .cover .hero .medal{--s:18cqw}
-  .cover .hero .t{font-size:3cqw;color:#bfae9c;font-weight:800}
-  .cover .hero .n{font-size:7cqw;font-weight:900;margin:.6cqw 0 1cqw}
-  .cover .hero .stars{font-size:4.6cqw} .cover .hero .stars i{color:#5a4c42}
+  /* 표지: 크림 바탕 + 큰 질문형 제목 + 노란 상자 속 토끼 (원장님 시안 2026-11-10) */
+  .cover{background:#fbf7ee}
+  .cover::before{display:none}
+  .cover .in{padding:6.4cqw 6.8cqw 5.4cqw}
+  .cover .top{font-size:3.6cqw;color:var(--ink)} .cover .top b{font-family:Jua,var(--f);font-weight:400;font-size:5.4cqw;letter-spacing:0}
+  .cover .kick{margin-top:5cqw;display:flex;align-items:center;gap:2cqw;font-size:4.2cqw;font-weight:900;color:#2f6fd6}
+  .cover .kick .dayn{font-size:2.8cqw;color:#2f6fd6;border:.3cqw solid #2f6fd6;border-radius:5cqw;padding:.4cqw 1.8cqw}
+  .cover h1{font-size:11.4cqw;font-weight:900;line-height:1.14;letter-spacing:-.06em;margin:2.4cqw 0 0;white-space:pre-line;color:#141210}
+  .cover .sub{font-size:3.3cqw;color:var(--dim);font-weight:800;margin-top:2.2cqw;margin-bottom:7cqw}
+  .cover .box{margin-top:auto;position:relative;background:#f9d65c;border:.5cqw solid #1f1b18;border-radius:2cqw;min-height:25cqw;display:flex;align-items:center;justify-content:flex-end;padding:3cqw 4.6cqw}
+  .cover .box .bn{position:absolute;left:1.6cqw;bottom:-.5cqw;width:26cqw;height:26cqw}
+  .cover .box .bn svg{width:100%;height:100%}
+  .cover .box .bt{font-family:Jua,var(--f);font-size:7.4cqw;line-height:1.25;text-align:right;white-space:pre-line;color:#1f1b18}
+  .cover .go{margin-top:3cqw;text-align:center;font-size:4.4cqw;font-weight:900}
+  .cover .go b{color:#2f6fd6}
+  .cover .rule{margin-top:2.4cqw;border-top:.4cqw solid #1f1b18;padding-top:2.6cqw;text-align:center;font-size:3.6cqw;font-weight:800}
   .cover .wm,.story .wm{position:absolute;right:-6cqw;top:16cqw;font-size:62cqw;line-height:1;color:rgba(255,255,255,.035);font-family:"Noto Serif CJK KR",serif;font-weight:900;pointer-events:none}
 
   /* 띠 상세 */
-  .tti .hd{display:flex;align-items:center;gap:4cqw;margin-top:3.6cqw}
-  .tti .hd .nm{font-size:7.8cqw;font-weight:900;letter-spacing:-.05em;line-height:1}
+  .tti .hd{display:flex;align-items:center;gap:4cqw;margin-top:2.6cqw}
+  .tti .hd .nm{font-size:7.2cqw;font-weight:900;letter-spacing:-.05em;line-height:1}
   .tti .hd .meta{display:flex;align-items:center;gap:2.4cqw;margin-top:1.8cqw;font-size:4.2cqw}
   .tti .hd .meta .word{font-size:3cqw}
-  .tti .total{margin-top:3cqw;background:#fff8ec;border-left:1.2cqw solid var(--c);border-radius:1.6cqw;padding:2.4cqw 3.6cqw;font-size:4.1cqw;font-weight:800;line-height:1.4;text-wrap:balance}
-  .tti .total .tl{font-size:4.1cqw;font-weight:900}
-  .tti .total .sm{margin-top:1.2cqw;font-size:3.35cqw;font-weight:700;color:#4d4239;line-height:1.5;text-wrap:pretty}
+  .tti .total{margin-top:2.4cqw;background:#fff8ec;border-left:1.2cqw solid var(--c);border-radius:1.6cqw;padding:2.4cqw 3.6cqw;font-size:4.1cqw;font-weight:800;line-height:1.4;text-wrap:balance}
+  .tti .total .tl{font-size:3.9cqw;font-weight:900}
+  .tti .total .sm{margin-top:1cqw;font-size:3.2cqw;font-weight:700;color:#4d4239;line-height:1.5;text-wrap:pretty}
   .tti .total::before{content:"총평";display:block;font-size:2.5cqw;font-weight:900;color:var(--c);margin-bottom:.6cqw}
+  .tti .todo{margin-top:1.3cqw;display:flex;align-items:center;gap:2cqw;font-size:3.4cqw;font-weight:900}
+  .tti .todo span{flex:none;background:#f9d65c;border:.3cqw solid #1f1b18;border-radius:1.2cqw;padding:.3cqw 1.6cqw;font-size:2.7cqw}
   .tti .yrs{margin-top:1.6cqw;display:flex;flex-direction:column}
-  .tti .yr{display:flex;align-items:center;gap:3.2cqw;padding:1.7cqw 0;border-bottom:.25cqw dashed var(--line)}
+  .tti .yr{display:flex;align-items:center;gap:3.2cqw;padding:1.4cqw 0;border-bottom:.25cqw dashed var(--line)}
   .tti .yr:last-child{border-bottom:0}
   .tti .yr .y{flex:none;width:14.5cqw;font-size:4.2cqw;font-weight:900;color:var(--c);line-height:1.35}
   .tti .yr .y small{display:block;font-size:2.6cqw;color:var(--dim);font-weight:700}
-  .tti .yr .x{font-size:3.6cqw;font-weight:700;line-height:1.45}
+  .tti .yr .x{font-size:3.45cqw;font-weight:700;line-height:1.45}
   .tti .lk{margin-top:auto;display:grid;grid-template-columns:1.15fr 1.25fr .9fr .9fr;gap:1.4cqw}
   .tti .lk > div{background:var(--paper2);border-radius:2cqw;padding:2cqw 2.2cqw;display:flex;align-items:center;gap:1.6cqw;min-width:0}
   .tti .lk > div > span:last-child{min-width:0}
@@ -145,26 +145,26 @@
   const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   const st = (n) => "★".repeat(n) + `<i>${"★".repeat(5 - n)}</i>`;
   const medal = (t, s) => `<div class="medal" style="--c:${t.color}${s ? `;--s:${s}` : ""}">${t.hanja}</div>`;
-  const top = (dark) => `<div class="top"><b>${esc(H.brand)}</b><span class="num">${H.md} ${H.wd}</span></div>`;
+  const top = (dark) => `<div class="top"><b>띠운세</b><span class="num">${H.md} ${H.wd}</span></div>`;
   const foot = (i, n) => `<div class="foot"><span><b class="fh">${esc(H.handle)}</b> · 팔로우하고 매일 아침 6시 내 띠 운세 받기</span><span class="num">${i}/${n}</span></div>`;
   const n = data.cards.length;
 
   const html = data.cards.map((c, k) => {
     const i = k + 1;
     if (c.type === "cover") {
-      const bottom = c.list
-        ? `<div class="ring">${c.list.map((t) => `<div>${medal(t)}${t.key}띠</div>`).join("")}</div>`
-        : `<div class="hero">${medal(c.tti)}<div><div class="t">내일 1위</div><div class="n">${c.tti.key}띠</div><div class="stars">${st(c.tti.stars)}</div></div></div>`;
-      return `<section class="card cover"><div class="wm">${(c.tti || c.list[0]).hanja}</div><div class="in">${top()}
-        <div class="bigdate"><span class="d num">${H.md}</span><span class="w">${H.wd}요일</span></div>
-        <div class="habit"><span class="kicker">${esc(c.kicker)}</span><span class="clock">매일 06:00 · 21:00</span><span class="dayn">${H.dayN}일째</span></div><h1>${esc(c.title)}</h1><div class="sub">${esc(c.sub)}</div>${bottom}${foot(i, n)}</div></section>`;
+      return `<section class="card cover"><div class="in"><div class="top"><b>띠운세</b><span>${H.long}</span></div>
+        <div class="kick">${esc(c.kicker)}<span class="dayn">${H.dayN}일째</span></div>
+        <h1>${esc(c.title)}</h1><div class="sub">${esc(c.sub)}</div>
+        <div class="box"><div class="bn">${window.bunny ? bunny("list") : ""}</div><div class="bt">${esc(c.box)}</div></div>
+        <div class="go">${esc(c.go)} <b>→</b></div>
+        <div class="rule">${esc(c.follow)}</div></div></section>`;
     }
     if (c.type === "tti") {
       const t = c.tti, L = t.lucky;
       return `<section class="card tti" style="--c:${t.color}"><div class="in">${top()}
-        <div class="hd">${medal(t, "13.5cqw")}<div><div class="nm">${t.key}띠</div>
+        <div class="hd">${medal(t, "12cqw")}<div><div class="nm">${t.key}띠</div>
           <div class="meta"><span class="stars">${st(t.stars)}</span><span class="word">${esc(t.word)}</span></div></div></div>
-        <div class="total"><div class="tl">${esc(t.total)}</div><div class="sm">${esc(t.summary)}</div></div>
+        <div class="total"><div class="tl">${esc(t.total)}</div><div class="sm">${esc(t.summary)}</div><div class="todo"><span>오늘 할 일</span>${esc(t.todo)}</div></div>
         <div class="yrs">${t.years.map((y) => `<div class="yr"><div class="y num">${y.year}<small>년생</small></div><div class="x">${esc(y.text)}</div></div>`).join("")}</div>
         <div class="lk">
           <div><span class="sw" style="--sw:${L.color.hex}"></span><span><div class="k">행운의 색</div><div class="v">${esc(L.color.name)}</div></span></div>
