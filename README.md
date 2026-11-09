@@ -26,6 +26,6 @@ PW_CHANNEL=msedge node scripts/render.mjs TP20261111 TA20261111_1 TA20261111_2
 2. `scripts/zodiac.mjs` 의 `CONFIG.handle` 을 실제 핸들로
 3. GitHub public 저장소 `ttiunse-instagram` 만들고 push
 4. Meta 앱 dr-kevin-publisher 에 새 계정을 Instagram 테스터로 추가·수락 → 토큰 발급
-5. 저장소 Secrets `IG_USER_ID`, `IG_ACCESS_TOKEN`, Variables `IG_USERNAME`(핸들, @ 없이)
+5. 저장소 Secrets `IG_USER_ID`, `IG_ACCESS_TOKEN` (계정 아이디 확인값은 publish.yml 의 EXPECT_USERNAME)
 6. Actions → Run workflow (publish=false) 로 만들어 보기
 7. 클라우드 예약 작업 2개: 매일 20:40 (ROUTINE_PROMPT.md), 매일 05:50 (ROUTINE_PROMPT_AM.md)

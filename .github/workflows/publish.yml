@@ -55,12 +55,12 @@ jobs:
           try npx playwright install --with-deps chromium
           try sudo apt-get install -y fonts-noto-cjk > /dev/null
 
-      - name: 토큰·계정 확인
-        if: steps.job.outputs.mode != 'none' && env.PUBLISH == 'true'
+      - name: 토큰·계정 확인 (게시물은 올리지 않음, 연습 때도 실행)
+        if: steps.job.outputs.mode != 'none'
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          EXPECT_USERNAME: ${{ vars.IG_USERNAME }}
+          EXPECT_USERNAME: ttiunse.daily   # 다른 계정 토큰이 잘못 들어가면 여기서 멈춘다
         run: node scripts/check_token.mjs
 
       - name: 카드 만들기·검사
