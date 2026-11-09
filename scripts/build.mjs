@@ -127,7 +127,7 @@ ${rank[0].key}띠`, tti: rank[0], line: "내 띠는 몇 위? 피드에서 확인
     const cards = [
       { type: "cover", kicker: `오늘의 띠별 운세 ${mark}`, title: `${part[0].key}띠부터 ${part[5].key}띠까지\n년생별 오늘 운세`, sub: `${D.long} · ${gj.ko}`, list: part },
       ...part.map((r) => ({ type: "tti", tti: r })),
-      { type: "outro", title: "팔로우하면\n매일 받는 것", perks: PERKS, teaser: k === 0 ? "말띠~돼지띠는 다음 게시물에 · 오늘 밤 9시 내일 1위 띠 공개" : "쥐띠~뱀띠는 이전 게시물에 · 오늘 밤 9시 내일 1위 띠 공개" },
+      { type: "outro", title: "팔로우하면\n매일 받는 것", perks: PERKS, teaser: k === 0 ? "말띠~돼지띠는 다음 게시물에\n오늘 밤 9시, 내일 1위 띠 공개" : "쥐띠~뱀띠는 이전 게시물에\n오늘 밤 9시, 내일 1위 띠 공개" },
     ];
     const best = [...part].sort((a, b) => b.score - a.score)[0];
     const caption = `${D.long} 오늘의 띠별 운세 ${mark} ${names}\n${FOLLOW_LINE}\n\n${part.map((r) => `${r.key}띠 ${r.years.map((y) => String(y.year).slice(2)).join("·")}년생 · ${r.total}`).join("\n")}\n\n오늘 가장 좋은 띠는 ${best.key}띠예요. 카드를 넘겨 내 년생 운세와 행운의 색·물건·숫자·방향을 확인하세요.\n오늘 밤 9시에는 내일 띠 순위가 공개돼요.\n\n${SAVE_LINE}\n\n${NOTE}\n\n${kw(part)}\n${tagsFor(part, ["#오늘의띠운세", "#오늘의운세", "#띠별운세"])}`;
