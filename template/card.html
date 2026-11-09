@@ -108,21 +108,25 @@
   .lucky .g .sw{width:5cqw;height:5cqw;margin-left:auto}
   .lucky .g .mid{min-width:0}
 
-  /* 마무리: 표지와 같은 크림 쪽지 */
+  /* 마무리: 가는 글씨 + 굵은 강조, 큰 따옴표, 기울어진 번호 배지 + 노란 막대 (원장님 참고 시안) */
   .outro{background:#fbf7ee}
   .outro::before{display:none}
-  .outro .in{padding:6.4cqw 6.8cqw 5.4cqw}
+  .outro .in{padding:6.4cqw 7.2cqw 5.4cqw}
   .outro .top{font-size:3.6cqw;color:var(--ink)} .outro .top b{font-size:5.4cqw}
-  .outro .note{margin-top:9cqw;font-family:Jua,var(--f);font-size:9.6cqw;line-height:1.32;color:#141210;text-wrap:balance}
-  .outro .share{margin-top:3.6cqw;font-size:3.8cqw;font-weight:700;color:var(--dim);line-height:1.5}
-  .outro .box{margin-top:auto;position:relative;background:#f9d65c;border:.5cqw solid #1f1b18;border-radius:2cqw;min-height:22cqw;display:flex;align-items:center;justify-content:flex-end;padding:3cqw 4.6cqw}
-  .outro .box .bn{position:absolute;left:3cqw;bottom:2.2cqw;width:19cqw;height:19cqw}
-  .outro .box .bn svg{width:100%;height:100%}
-  .outro .box .bt{font-family:Jua,var(--f);font-size:7cqw;line-height:1.25;text-align:right;white-space:pre-line;color:#1f1b18}
-  .outro .plan{margin-top:3.4cqw;display:flex;justify-content:center;gap:2cqw;font-size:3.8cqw;font-weight:700}
-  .outro .plan b{font-weight:800;color:#2f6fd6} .outro .plan .dot{color:var(--dim)}
-  .outro .teaser{margin-top:1.4cqw;text-align:center;font-size:3.2cqw;font-weight:700;color:var(--dim)}
-  .outro .rule{margin-top:2.6cqw;border-top:.4cqw solid #1f1b18;padding-top:2.6cqw;text-align:center;font-size:3.7cqw;font-weight:700}
+  .outro .q{margin-top:1.6cqw;font-family:Georgia,serif;font-size:18cqw;line-height:.7;height:9cqw;color:#f2c230;font-weight:700}
+  .outro .note{font-size:6.2cqw;font-weight:300;line-height:1.45;color:#57504a;letter-spacing:-.03em;text-wrap:balance}
+  .outro .note b{font-weight:800;color:#141210}
+  .outro .ttl{margin-top:4cqw;font-size:5.2cqw;font-weight:300;line-height:1.35;color:#3a3430}
+  .outro .ttl b{font-size:6.8cqw;font-weight:800;color:#141210}
+  .outro .steps{margin-top:3cqw;display:flex;flex-direction:column;gap:2cqw}
+  .outro .st{display:flex;align-items:center}
+  .outro .st .no{flex:none;position:relative;z-index:1;width:9.4cqw;height:9.4cqw;display:grid;place-items:center;background:#fff;border-radius:2cqw;
+    box-shadow:0 .6cqw 1.6cqw rgba(0,0,0,.18);transform:rotate(-8deg);font-size:5.8cqw;font-weight:800;font-style:italic;color:#141210;margin-right:-2.4cqw}
+  .outro .st .bar{flex:1;background:#f9d65c;border-radius:1.6cqw;padding:2cqw 3cqw 2cqw 5cqw;font-size:3.7cqw;font-weight:400;color:#1f1b18}
+  .outro .st .bar b{font-weight:800;margin-right:1cqw}
+  .outro .share{margin-top:auto;font-size:3.4cqw;font-weight:400;color:var(--dim);line-height:1.5;text-align:center}
+  .outro .share b{font-weight:800;color:var(--ink)}
+  .outro .rule{margin-top:2.4cqw;border-top:.4cqw solid #1f1b18;padding-top:2.6cqw;text-align:center;font-size:3.7cqw;font-weight:400}
   .outro .rule b{font-weight:800}
   /* 스토리 9:16 */
   .story{aspect-ratio:9/16;background:var(--night);color:#f5eee1}
@@ -199,13 +203,15 @@
         <div class="nx"><span>다음 도착</span>${esc(c.next)}</div>
         <div class="foot"><span><b class="fh">${esc(H.handle)}</b> · 매일 같은 시간, 내 띠 운세</span><span class="num">${H.dayN}일째</span></div></div></section>`;
     }
-    // 마무리: 표지와 같은 크림 바탕 쪽지 느낌 — 손글씨 응원 한 줄, 토끼 상자로 다음 시간 약속, 팔로우는 밑줄 한 줄
+    // 마무리 (원장님 참고 시안 2026-11-10): 가는 글씨 + 핵심만 굵게, 큰 따옴표, 기울어진 번호 배지 + 색 막대 목록
+    const em = (s) => esc(s || "").replace(/\*\*(.+?)\*\*/g, "<b>$1</b>"); // **강조** → 굵게
+    const steps = [["아침 6시", "띠별 일·돈·관계 운세와 오늘의 행동"], ["밤 9시", "내일 띠 순위를 하루 먼저"], ["매일", "바뀌는 행운의 색·물건·숫자"]];
     return `<section class="card outro"><div class="in"><div class="top"><b>띠운세</b><span>${H.long}</span></div>
-      <div class="note">${esc(c.cheer || "")}</div>
-      <div class="share">${esc(c.share || "")}</div>
-      <div class="box"><div class="bn">${window.bunny ? bunny("face") : ""}</div><div class="bt">${esc(c.box)}</div></div>
-      <div class="plan"><span><b>아침 6시</b> 띠별 운세</span><span class="dot">·</span><span><b>밤 9시</b> 내일 순위</span></div>
-      ${c.teaser ? `<div class="teaser">${esc(c.teaser)}</div>` : ""}
+      <div class="q">“</div>
+      <div class="note">${em(c.cheer)}</div>
+      <div class="ttl">띠운세를 팔로우하면<br><b>매일 받는 3가지</b></div>
+      <div class="steps">${steps.map(([k, x], j) => `<div class="st"><span class="no">${j + 1}</span><div class="bar"><b>${esc(k)}</b> ${esc(x)}</div></div>`).join("")}</div>
+      <div class="share">${em(c.share)}${c.teaser ? `<br>${esc(c.teaser)}` : ""}</div>
       <div class="rule"><b>${esc(H.handle)}</b> 팔로우하고 매일 받아 보세요</div></div></section>`;
   }).join("");
   document.getElementById("deck").innerHTML = html;
