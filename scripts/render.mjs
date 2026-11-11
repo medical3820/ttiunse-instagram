@@ -35,13 +35,26 @@ try {
     });
     if (!fontOk) throw new Error("나눔스퀘어라운드 글꼴을 불러오지 못했습니다 (assets/fonts 확인).");
 
-    const over = () => page.$$eval(".card .in", (els) => els.map((el, i) => (el.scrollHeight > el.clientHeight + 2 ? i + 1 : 0)).filter(Boolean));
+    // 넘침 검사: 1) 카드 아래로 넘침  2) 글자가 칸 옆으로 삐져나감·잘림(말줄임 포함)
+    const over = () => page.$$eval(".card", (cards) => cards.map((card, i) => {
+      const inn = card.querySelector(".in");
+      if (inn.scrollHeight > inn.clientHeight + 2) return `${i + 1}번(아래로 넘침)`;
+      const cr = card.getBoundingClientRect();
+      for (const el of card.querySelectorAll(".in *")) {
+        if (!el.childNodes.length || ![...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim())) continue; // 글자가 있는 요소만
+        const cs = getComputedStyle(el);
+        if (cs.textOverflow === "ellipsis" || (cs.overflow !== "visible" && el.scrollWidth > el.clientWidth + 2)) return `${i + 1}번(글자 잘림: "${el.textContent.trim().slice(0, 12)}")`;
+        const r = el.getBoundingClientRect();
+        if (r.width && (r.right > cr.right - 4 || r.left < cr.left + 4)) return `${i + 1}번(옆으로 삐져나감: "${el.textContent.trim().slice(0, 12)}")`;
+      }
+      return "";
+    }).filter(Boolean));
     let overflow = await over();
     if (overflow.length) { // 넘치면 한 단계 촘촘하게
-      await page.evaluate((ns) => ns.forEach((n) => document.querySelectorAll(".card")[n - 1].classList.add("squeeze")), overflow);
+      await page.evaluate((ns) => ns.forEach((s) => document.querySelectorAll(".card")[parseInt(s) - 1].classList.add("squeeze")), overflow);
       overflow = await over();
     }
-    if (overflow.length && process.env.ALLOW_OVERFLOW !== "1") throw new Error(`${id}: 글이 카드 밖으로 넘칩니다: ${overflow.join(", ")}번 카드`);
+    if (overflow.length && process.env.ALLOW_OVERFLOW !== "1") throw new Error(`${id}: 글이 카드에 다 안 들어갑니다: ${overflow.join(", ")}`);
 
     const cards = await page.$$(".card");
     for (let i = 0; i < cards.length; i++) await cards[i].screenshot({ path: join(dir, `${String(i + 1).padStart(2, "0")}.jpg`), type: "jpeg", quality: 92 });
