@@ -1,0 +1,1003 @@
+{
+  "id": "TP20261111",
+  "head": {
+    "dayN": 1,
+    "brand": "오늘의 띠운세",
+    "handle": "@ttiunse.daily",
+    "md": "11.11",
+    "wd": "수",
+    "long": "11월 11일 (수)",
+    "ganji": "병오년"
+  },
+  "cards": [
+    {
+      "type": "cover",
+      "kicker": "매일 밤 9시, 내일 순위 먼저",
+      "title": "내일 운 좋은 띠\n1위는\n용띠!",
+      "sub": "11월 11일 (수) · 12띠 순위와 행운의 색·물건",
+      "box": "12띠 순위\n+ 행운의 색·물건",
+      "go": "내 띠 순위는 넘겨서 확인",
+      "follow": "팔로우하고 아침 6시 띠별 상세 운세도 받으세요."
+    },
+    {
+      "type": "rank",
+      "title": "띠별 운세 순위 1~6위",
+      "list": [
+        {
+          "key": "용",
+          "hanja": "辰",
+          "color": "#2f7a6b",
+          "idx": 4,
+          "score": 95,
+          "stars": 5,
+          "word": "도약",
+          "core": "준비해 온 노력이 눈에 띄는 하루예요",
+          "work": "맡은 일을 한 단계 위로 정리해 봐요",
+          "money": "필요한 것만 적어 두고 장을 봐요",
+          "relation": "고마운 마음을 말로 표현해 보세요",
+          "action": "감사 문자 보내기",
+          "years": [
+            {
+              "year": 1976
+            },
+            {
+              "year": 1988
+            },
+            {
+              "year": 2000
+            }
+          ],
+          "colorName": "남색",
+          "lucky": {
+            "color": {
+              "name": "남색",
+              "hex": "#2c3e75"
+            },
+            "item": "스티커",
+            "numbers": [
+              2,
+              8
+            ],
+            "direction": "동쪽"
+          },
+          "rank": 1
+        },
+        {
+          "key": "쥐",
+          "hanja": "子",
+          "color": "#3f5d8a",
+          "idx": 0,
+          "score": 91,
+          "stars": 5,
+          "word": "기회",
+          "core": "작은 아이디어가 반짝 빛나는 날이에요",
+          "work": "떠오른 생각을 메모해 두면 쓸모가 커져요",
+          "money": "자주 쓰는 구독 서비스를 한번 점검해요",
+          "relation": "먼저 건넨 인사가 좋은 흐름을 만들어요",
+          "action": "아이디어 한 줄 적기",
+          "years": [
+            {
+              "year": 1984
+            },
+            {
+              "year": 1996
+            },
+            {
+              "year": 2008
+            }
+          ],
+          "colorName": "연두",
+          "lucky": {
+            "color": {
+              "name": "연두",
+              "hex": "#9ccc65"
+            },
+            "item": "쿠션",
+            "numbers": [
+              1,
+              2
+            ],
+            "direction": "동쪽"
+          },
+          "rank": 2
+        },
+        {
+          "key": "원숭이",
+          "hanja": "申",
+          "color": "#c08a1e",
+          "idx": 8,
+          "score": 88,
+          "stars": 4,
+          "word": "재치",
+          "core": "센스 있는 한마디가 분위기를 바꿔요",
+          "work": "새로운 방법을 하나 시도해 봐요",
+          "money": "할인보다 꼭 필요한지 먼저 따져요",
+          "relation": "농담 섞인 안부가 웃음을 줘요",
+          "action": "새 방법 하나 해보기",
+          "years": [
+            {
+              "year": 1980
+            },
+            {
+              "year": 1992
+            },
+            {
+              "year": 2004
+            }
+          ],
+          "colorName": "민트",
+          "lucky": {
+            "color": {
+              "name": "민트",
+              "hex": "#7fd1b9"
+            },
+            "item": "머리핀",
+            "numbers": [
+              5,
+              6
+            ],
+            "direction": "북쪽"
+          },
+          "rank": 3
+        },
+        {
+          "key": "소",
+          "hanja": "丑",
+          "color": "#8a6a3f",
+          "idx": 1,
+          "score": 86,
+          "stars": 4,
+          "word": "꾸준함",
+          "core": "천천히 가도 방향이 맞으면 충분해요",
+          "work": "미뤄 둔 일 하나를 끝까지 마무리해요",
+          "money": "이번 주 지출을 가볍게 훑어봐요",
+          "relation": "들어주는 한마디가 큰 힘이 돼요",
+          "action": "할 일 하나 끝내기",
+          "years": [
+            {
+              "year": 1973
+            },
+            {
+              "year": 1985
+            },
+            {
+              "year": 1997
+            }
+          ],
+          "colorName": "카멜",
+          "lucky": {
+            "color": {
+              "name": "카멜",
+              "hex": "#b07d48"
+            },
+            "item": "핸드크림",
+            "numbers": [
+              5,
+              8
+            ],
+            "direction": "동남쪽"
+          },
+          "rank": 4
+        },
+        {
+          "key": "말",
+          "hanja": "午",
+          "color": "#b8432f",
+          "idx": 6,
+          "score": 82,
+          "stars": 4,
+          "word": "활력",
+          "core": "몸을 움직일수록 기분이 좋아져요",
+          "work": "빠르게 처리할 일부터 먼저 끝내요",
+          "money": "이동비를 아끼려 걷는 길을 골라요",
+          "relation": "함께 걷자는 제안이 반가워요",
+          "action": "한 정거장 걷기",
+          "years": [
+            {
+              "year": 1978
+            },
+            {
+              "year": 1990
+            },
+            {
+              "year": 2002
+            }
+          ],
+          "colorName": "다홍",
+          "lucky": {
+            "color": {
+              "name": "다홍",
+              "hex": "#e2543b"
+            },
+            "item": "생수",
+            "numbers": [
+              7,
+              8
+            ],
+            "direction": "서북쪽"
+          },
+          "rank": 5
+        },
+        {
+          "key": "돼지",
+          "hanja": "亥",
+          "color": "#3d6f8f",
+          "idx": 11,
+          "score": 81,
+          "stars": 4,
+          "word": "든든",
+          "core": "따뜻한 한 끼가 하루를 든든하게 해요",
+          "work": "식사 후 가벼운 산책으로 능률을 올려요",
+          "money": "집밥으로 알뜰한 하루를 만들어요",
+          "relation": "함께 먹는 시간이 마음을 이어 줘요",
+          "action": "따뜻한 밥 챙기기",
+          "years": [
+            {
+              "year": 1983
+            },
+            {
+              "year": 1995
+            },
+            {
+              "year": 2007
+            }
+          ],
+          "colorName": "살구",
+          "lucky": {
+            "color": {
+              "name": "살구",
+              "hex": "#f6bf97"
+            },
+            "item": "텀블러",
+            "numbers": [
+              1,
+              2
+            ],
+            "direction": "서쪽"
+          },
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "type": "rank",
+      "title": "띠별 운세 순위 7~12위",
+      "list": [
+        {
+          "key": "호랑이",
+          "hanja": "寅",
+          "color": "#c2672a",
+          "idx": 2,
+          "score": 78,
+          "stars": 4,
+          "word": "용기",
+          "core": "망설이던 일에 첫걸음을 떼기 좋아요",
+          "work": "회의나 수업에서 의견을 한 번 말해 봐요",
+          "money": "충동구매 전 하룻밤만 기다려 봐요",
+          "relation": "솔직한 말은 부드럽게 전하면 좋아요",
+          "action": "첫 문장 먼저 쓰기",
+          "years": [
+            {
+              "year": 1974
+            },
+            {
+              "year": 1986
+            },
+            {
+              "year": 1998
+            }
+          ],
+          "colorName": "주황",
+          "lucky": {
+            "color": {
+              "name": "주황",
+              "hex": "#f0913a"
+            },
+            "item": "견과류",
+            "numbers": [
+              7,
+              8
+            ],
+            "direction": "동쪽"
+          },
+          "rank": 7
+        },
+        {
+          "key": "닭",
+          "hanja": "酉",
+          "color": "#a6452f",
+          "idx": 9,
+          "score": 76,
+          "stars": 3,
+          "word": "집중",
+          "core": "한 가지에 몰입하면 성과가 보여요",
+          "work": "알림을 끄고 30분만 집중해 봐요",
+          "money": "고정비 항목을 차근차근 확인해요",
+          "relation": "약속 시간을 지키면 믿음이 쌓여요",
+          "action": "휴대폰 잠시 멀리",
+          "years": [
+            {
+              "year": 1981
+            },
+            {
+              "year": 1993
+            },
+            {
+              "year": 2005
+            }
+          ],
+          "colorName": "머스터드",
+          "lucky": {
+            "color": {
+              "name": "머스터드",
+              "hex": "#c9a227"
+            },
+            "item": "안경",
+            "numbers": [
+              2,
+              7
+            ],
+            "direction": "남쪽"
+          },
+          "rank": 8
+        },
+        {
+          "key": "토끼",
+          "hanja": "卯",
+          "color": "#b0577a",
+          "idx": 3,
+          "score": 73,
+          "stars": 3,
+          "word": "쉼표",
+          "core": "잠깐 숨 돌리면 마음이 한결 가벼워요",
+          "work": "중간에 쉬는 시간을 꼭 넣어 주세요",
+          "money": "작은 간식 대신 따뜻한 차 한 잔이면 돼요",
+          "relation": "편한 사람과 짧게 수다 떨어요",
+          "action": "5분 스트레칭하기",
+          "years": [
+            {
+              "year": 1975
+            },
+            {
+              "year": 1987
+            },
+            {
+              "year": 1999
+            }
+          ],
+          "colorName": "분홍",
+          "lucky": {
+            "color": {
+              "name": "분홍",
+              "hex": "#f19bb5"
+            },
+            "item": "이어폰",
+            "numbers": [
+              1,
+              7
+            ],
+            "direction": "서남쪽"
+          },
+          "rank": 9
+        },
+        {
+          "key": "뱀",
+          "hanja": "巳",
+          "color": "#6b4f8f",
+          "idx": 5,
+          "score": 69,
+          "stars": 3,
+          "word": "정리",
+          "core": "주변이 정돈되면 생각도 맑아져요",
+          "work": "책상 위 서류를 종류별로 나눠 봐요",
+          "money": "영수증이나 내역을 한곳에 모아요",
+          "relation": "오해는 차분히 짚으면 금방 풀려요",
+          "action": "서랍 하나 비우기",
+          "years": [
+            {
+              "year": 1977
+            },
+            {
+              "year": 1989
+            },
+            {
+              "year": 2001
+            }
+          ],
+          "colorName": "회색",
+          "lucky": {
+            "color": {
+              "name": "회색",
+              "hex": "#9aa0a6"
+            },
+            "item": "메모지",
+            "numbers": [
+              2,
+              4
+            ],
+            "direction": "동북쪽"
+          },
+          "rank": 10
+        },
+        {
+          "key": "양",
+          "hanja": "未",
+          "color": "#7d8a3f",
+          "idx": 7,
+          "score": 64,
+          "stars": 3,
+          "word": "여유",
+          "core": "서두르지 않으면 실수도 줄어들어요",
+          "work": "시작 전에 순서를 한 번 적어 봐요",
+          "money": "가계부에 오늘 쓴 돈만 적어요",
+          "relation": "부드러운 말투가 분위기를 살려요",
+          "action": "물 한 잔 마시기",
+          "years": [
+            {
+              "year": 1979
+            },
+            {
+              "year": 1991
+            },
+            {
+              "year": 2003
+            }
+          ],
+          "colorName": "아이보리",
+          "lucky": {
+            "color": {
+              "name": "아이보리",
+              "hex": "#f6f0dc"
+            },
+            "item": "물티슈",
+            "numbers": [
+              1,
+              9
+            ],
+            "direction": "북쪽"
+          },
+          "rank": 11
+        },
+        {
+          "key": "개",
+          "hanja": "戌",
+          "color": "#5e6b74",
+          "idx": 10,
+          "score": 58,
+          "stars": 2,
+          "word": "점검",
+          "core": "한 번 더 살피면 든든하게 지나가요",
+          "work": "제출 전에 오탈자를 꼼꼼히 확인해요",
+          "money": "예정된 결제일을 달력에 적어 둬요",
+          "relation": "걱정은 믿는 사람에게 털어놔요",
+          "action": "일정표 다시 보기",
+          "years": [
+            {
+              "year": 1982
+            },
+            {
+              "year": 1994
+            },
+            {
+              "year": 2006
+            }
+          ],
+          "colorName": "올리브",
+          "lucky": {
+            "color": {
+              "name": "올리브",
+              "hex": "#7d8a3f"
+            },
+            "item": "가죽 벨트",
+            "numbers": [
+              1,
+              2
+            ],
+            "direction": "동쪽"
+          },
+          "rank": 12
+        }
+      ]
+    },
+    {
+      "type": "lucky",
+      "title": "띠별 행운의 색·물건",
+      "list": [
+        {
+          "key": "쥐",
+          "hanja": "子",
+          "color": "#3f5d8a",
+          "idx": 0,
+          "score": 91,
+          "stars": 5,
+          "word": "기회",
+          "core": "작은 아이디어가 반짝 빛나는 날이에요",
+          "work": "떠오른 생각을 메모해 두면 쓸모가 커져요",
+          "money": "자주 쓰는 구독 서비스를 한번 점검해요",
+          "relation": "먼저 건넨 인사가 좋은 흐름을 만들어요",
+          "action": "아이디어 한 줄 적기",
+          "years": [
+            {
+              "year": 1984
+            },
+            {
+              "year": 1996
+            },
+            {
+              "year": 2008
+            }
+          ],
+          "colorName": "연두",
+          "lucky": {
+            "color": {
+              "name": "연두",
+              "hex": "#9ccc65"
+            },
+            "item": "쿠션",
+            "numbers": [
+              1,
+              2
+            ],
+            "direction": "동쪽"
+          },
+          "rank": 2
+        },
+        {
+          "key": "소",
+          "hanja": "丑",
+          "color": "#8a6a3f",
+          "idx": 1,
+          "score": 86,
+          "stars": 4,
+          "word": "꾸준함",
+          "core": "천천히 가도 방향이 맞으면 충분해요",
+          "work": "미뤄 둔 일 하나를 끝까지 마무리해요",
+          "money": "이번 주 지출을 가볍게 훑어봐요",
+          "relation": "들어주는 한마디가 큰 힘이 돼요",
+          "action": "할 일 하나 끝내기",
+          "years": [
+            {
+              "year": 1973
+            },
+            {
+              "year": 1985
+            },
+            {
+              "year": 1997
+            }
+          ],
+          "colorName": "카멜",
+          "lucky": {
+            "color": {
+              "name": "카멜",
+              "hex": "#b07d48"
+            },
+            "item": "핸드크림",
+            "numbers": [
+              5,
+              8
+            ],
+            "direction": "동남쪽"
+          },
+          "rank": 4
+        },
+        {
+          "key": "호랑이",
+          "hanja": "寅",
+          "color": "#c2672a",
+          "idx": 2,
+          "score": 78,
+          "stars": 4,
+          "word": "용기",
+          "core": "망설이던 일에 첫걸음을 떼기 좋아요",
+          "work": "회의나 수업에서 의견을 한 번 말해 봐요",
+          "money": "충동구매 전 하룻밤만 기다려 봐요",
+          "relation": "솔직한 말은 부드럽게 전하면 좋아요",
+          "action": "첫 문장 먼저 쓰기",
+          "years": [
+            {
+              "year": 1974
+            },
+            {
+              "year": 1986
+            },
+            {
+              "year": 1998
+            }
+          ],
+          "colorName": "주황",
+          "lucky": {
+            "color": {
+              "name": "주황",
+              "hex": "#f0913a"
+            },
+            "item": "견과류",
+            "numbers": [
+              7,
+              8
+            ],
+            "direction": "동쪽"
+          },
+          "rank": 7
+        },
+        {
+          "key": "토끼",
+          "hanja": "卯",
+          "color": "#b0577a",
+          "idx": 3,
+          "score": 73,
+          "stars": 3,
+          "word": "쉼표",
+          "core": "잠깐 숨 돌리면 마음이 한결 가벼워요",
+          "work": "중간에 쉬는 시간을 꼭 넣어 주세요",
+          "money": "작은 간식 대신 따뜻한 차 한 잔이면 돼요",
+          "relation": "편한 사람과 짧게 수다 떨어요",
+          "action": "5분 스트레칭하기",
+          "years": [
+            {
+              "year": 1975
+            },
+            {
+              "year": 1987
+            },
+            {
+              "year": 1999
+            }
+          ],
+          "colorName": "분홍",
+          "lucky": {
+            "color": {
+              "name": "분홍",
+              "hex": "#f19bb5"
+            },
+            "item": "이어폰",
+            "numbers": [
+              1,
+              7
+            ],
+            "direction": "서남쪽"
+          },
+          "rank": 9
+        },
+        {
+          "key": "용",
+          "hanja": "辰",
+          "color": "#2f7a6b",
+          "idx": 4,
+          "score": 95,
+          "stars": 5,
+          "word": "도약",
+          "core": "준비해 온 노력이 눈에 띄는 하루예요",
+          "work": "맡은 일을 한 단계 위로 정리해 봐요",
+          "money": "필요한 것만 적어 두고 장을 봐요",
+          "relation": "고마운 마음을 말로 표현해 보세요",
+          "action": "감사 문자 보내기",
+          "years": [
+            {
+              "year": 1976
+            },
+            {
+              "year": 1988
+            },
+            {
+              "year": 2000
+            }
+          ],
+          "colorName": "남색",
+          "lucky": {
+            "color": {
+              "name": "남색",
+              "hex": "#2c3e75"
+            },
+            "item": "스티커",
+            "numbers": [
+              2,
+              8
+            ],
+            "direction": "동쪽"
+          },
+          "rank": 1
+        },
+        {
+          "key": "뱀",
+          "hanja": "巳",
+          "color": "#6b4f8f",
+          "idx": 5,
+          "score": 69,
+          "stars": 3,
+          "word": "정리",
+          "core": "주변이 정돈되면 생각도 맑아져요",
+          "work": "책상 위 서류를 종류별로 나눠 봐요",
+          "money": "영수증이나 내역을 한곳에 모아요",
+          "relation": "오해는 차분히 짚으면 금방 풀려요",
+          "action": "서랍 하나 비우기",
+          "years": [
+            {
+              "year": 1977
+            },
+            {
+              "year": 1989
+            },
+            {
+              "year": 2001
+            }
+          ],
+          "colorName": "회색",
+          "lucky": {
+            "color": {
+              "name": "회색",
+              "hex": "#9aa0a6"
+            },
+            "item": "메모지",
+            "numbers": [
+              2,
+              4
+            ],
+            "direction": "동북쪽"
+          },
+          "rank": 10
+        },
+        {
+          "key": "말",
+          "hanja": "午",
+          "color": "#b8432f",
+          "idx": 6,
+          "score": 82,
+          "stars": 4,
+          "word": "활력",
+          "core": "몸을 움직일수록 기분이 좋아져요",
+          "work": "빠르게 처리할 일부터 먼저 끝내요",
+          "money": "이동비를 아끼려 걷는 길을 골라요",
+          "relation": "함께 걷자는 제안이 반가워요",
+          "action": "한 정거장 걷기",
+          "years": [
+            {
+              "year": 1978
+            },
+            {
+              "year": 1990
+            },
+            {
+              "year": 2002
+            }
+          ],
+          "colorName": "다홍",
+          "lucky": {
+            "color": {
+              "name": "다홍",
+              "hex": "#e2543b"
+            },
+            "item": "생수",
+            "numbers": [
+              7,
+              8
+            ],
+            "direction": "서북쪽"
+          },
+          "rank": 5
+        },
+        {
+          "key": "양",
+          "hanja": "未",
+          "color": "#7d8a3f",
+          "idx": 7,
+          "score": 64,
+          "stars": 3,
+          "word": "여유",
+          "core": "서두르지 않으면 실수도 줄어들어요",
+          "work": "시작 전에 순서를 한 번 적어 봐요",
+          "money": "가계부에 오늘 쓴 돈만 적어요",
+          "relation": "부드러운 말투가 분위기를 살려요",
+          "action": "물 한 잔 마시기",
+          "years": [
+            {
+              "year": 1979
+            },
+            {
+              "year": 1991
+            },
+            {
+              "year": 2003
+            }
+          ],
+          "colorName": "아이보리",
+          "lucky": {
+            "color": {
+              "name": "아이보리",
+              "hex": "#f6f0dc"
+            },
+            "item": "물티슈",
+            "numbers": [
+              1,
+              9
+            ],
+            "direction": "북쪽"
+          },
+          "rank": 11
+        },
+        {
+          "key": "원숭이",
+          "hanja": "申",
+          "color": "#c08a1e",
+          "idx": 8,
+          "score": 88,
+          "stars": 4,
+          "word": "재치",
+          "core": "센스 있는 한마디가 분위기를 바꿔요",
+          "work": "새로운 방법을 하나 시도해 봐요",
+          "money": "할인보다 꼭 필요한지 먼저 따져요",
+          "relation": "농담 섞인 안부가 웃음을 줘요",
+          "action": "새 방법 하나 해보기",
+          "years": [
+            {
+              "year": 1980
+            },
+            {
+              "year": 1992
+            },
+            {
+              "year": 2004
+            }
+          ],
+          "colorName": "민트",
+          "lucky": {
+            "color": {
+              "name": "민트",
+              "hex": "#7fd1b9"
+            },
+            "item": "머리핀",
+            "numbers": [
+              5,
+              6
+            ],
+            "direction": "북쪽"
+          },
+          "rank": 3
+        },
+        {
+          "key": "닭",
+          "hanja": "酉",
+          "color": "#a6452f",
+          "idx": 9,
+          "score": 76,
+          "stars": 3,
+          "word": "집중",
+          "core": "한 가지에 몰입하면 성과가 보여요",
+          "work": "알림을 끄고 30분만 집중해 봐요",
+          "money": "고정비 항목을 차근차근 확인해요",
+          "relation": "약속 시간을 지키면 믿음이 쌓여요",
+          "action": "휴대폰 잠시 멀리",
+          "years": [
+            {
+              "year": 1981
+            },
+            {
+              "year": 1993
+            },
+            {
+              "year": 2005
+            }
+          ],
+          "colorName": "머스터드",
+          "lucky": {
+            "color": {
+              "name": "머스터드",
+              "hex": "#c9a227"
+            },
+            "item": "안경",
+            "numbers": [
+              2,
+              7
+            ],
+            "direction": "남쪽"
+          },
+          "rank": 8
+        },
+        {
+          "key": "개",
+          "hanja": "戌",
+          "color": "#5e6b74",
+          "idx": 10,
+          "score": 58,
+          "stars": 2,
+          "word": "점검",
+          "core": "한 번 더 살피면 든든하게 지나가요",
+          "work": "제출 전에 오탈자를 꼼꼼히 확인해요",
+          "money": "예정된 결제일을 달력에 적어 둬요",
+          "relation": "걱정은 믿는 사람에게 털어놔요",
+          "action": "일정표 다시 보기",
+          "years": [
+            {
+              "year": 1982
+            },
+            {
+              "year": 1994
+            },
+            {
+              "year": 2006
+            }
+          ],
+          "colorName": "올리브",
+          "lucky": {
+            "color": {
+              "name": "올리브",
+              "hex": "#7d8a3f"
+            },
+            "item": "가죽 벨트",
+            "numbers": [
+              1,
+              2
+            ],
+            "direction": "동쪽"
+          },
+          "rank": 12
+        },
+        {
+          "key": "돼지",
+          "hanja": "亥",
+          "color": "#3d6f8f",
+          "idx": 11,
+          "score": 81,
+          "stars": 4,
+          "word": "든든",
+          "core": "따뜻한 한 끼가 하루를 든든하게 해요",
+          "work": "식사 후 가벼운 산책으로 능률을 올려요",
+          "money": "집밥으로 알뜰한 하루를 만들어요",
+          "relation": "함께 먹는 시간이 마음을 이어 줘요",
+          "action": "따뜻한 밥 챙기기",
+          "years": [
+            {
+              "year": 1983
+            },
+            {
+              "year": 1995
+            },
+            {
+              "year": 2007
+            }
+          ],
+          "colorName": "살구",
+          "lucky": {
+            "color": {
+              "name": "살구",
+              "hex": "#f6bf97"
+            },
+            "item": "텀블러",
+            "numbers": [
+              1,
+              2
+            ],
+            "direction": "서쪽"
+          },
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "cheer": "오늘도 **내 속도로 충분히** 잘하고 있어요.",
+      "share": "마음에 드는 문구는 **저장해 두고** 친구에게도 보내 보세요.",
+      "title": "팔로우하면\n매일 받는 것",
+      "perks": [
+        [
+          "아침 6시",
+          "띠별 일·돈·관계 운세"
+        ],
+        [
+          "밤 9시",
+          "내일 띠 순위 미리보기"
+        ],
+        [
+          "매일",
+          "바뀌는 행운의 색·물건·숫자"
+        ],
+        [
+          "1분",
+          "출근길에 넘겨 보면 끝"
+        ]
+      ],
+      "teaser": "",
+      "box": "내일 아침 6시\n또 만나요"
+    }
+  ]
+}

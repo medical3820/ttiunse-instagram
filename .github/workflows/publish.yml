@@ -17,7 +17,7 @@ on:
       publish: { description: "true 면 실제 발행", required: false, default: "false" }
 
 concurrency: { group: ttiunse, cancel-in-progress: false }
-permissions: { contents: write }
+permissions: { contents: write, issues: write }
 
 jobs:
   run:
@@ -111,3 +111,11 @@ jobs:
         run: |
           git add published.txt; git diff --cached --quiet && exit 0
           git commit -m "발행 기록 ${{ steps.build.outputs.ids }}"; git pull --rebase origin main; git push origin main
+
+      - name: 실패 알림 (GitHub 이슈 → 원장님 메일·앱 알림)
+        if: failure() && env.PUBLISH == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --repo "${{ github.repository }}"             --title "⚠ 발행 실패: ${{ github.workflow }} ($(TZ=Asia/Seoul date '+%m/%d %H:%M'))"             --body "실행 기록: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          토큰 확인 단계에서 멈췄다면 인스타 토큰이 끊긴 것이에요(페이스북 로그인 풀림·비밀번호 변경). Meta에서 토큰을 새로 발급해 IG_ACCESS_TOKEN 을 바꾼 뒤 이 실행을 Re-run 하면 됩니다." || true

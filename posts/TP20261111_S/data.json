@@ -1,0 +1,61 @@
+{
+  "id": "TP20261111_S",
+  "head": {
+    "dayN": 1,
+    "brand": "오늘의 띠운세",
+    "handle": "@ttiunse.daily",
+    "md": "11.11",
+    "wd": "수",
+    "long": "11월 11일 (수)",
+    "ganji": "병오년"
+  },
+  "cards": [
+    {
+      "type": "story",
+      "clock": "21:00",
+      "kicker": "밤 9시 · 내일 순위 도착",
+      "title": "내일 1위는\n용띠",
+      "tti": {
+        "key": "용",
+        "hanja": "辰",
+        "color": "#2f7a6b",
+        "idx": 4,
+        "score": 95,
+        "stars": 5,
+        "word": "도약",
+        "core": "준비해 온 노력이 눈에 띄는 하루예요",
+        "work": "맡은 일을 한 단계 위로 정리해 봐요",
+        "money": "필요한 것만 적어 두고 장을 봐요",
+        "relation": "고마운 마음을 말로 표현해 보세요",
+        "action": "감사 문자 보내기",
+        "years": [
+          {
+            "year": 1976
+          },
+          {
+            "year": 1988
+          },
+          {
+            "year": 2000
+          }
+        ],
+        "colorName": "남색",
+        "lucky": {
+          "color": {
+            "name": "남색",
+            "hex": "#2c3e75"
+          },
+          "item": "스티커",
+          "numbers": [
+            2,
+            8
+          ],
+          "direction": "동쪽"
+        },
+        "rank": 1
+      },
+      "line": "내 띠는 몇 위? 피드에서 확인",
+      "next": "내일 아침 6시 · 띠별 상세 운세"
+    }
+  ]
+}
