@@ -1,0 +1,61 @@
+{
+  "id": "TA20261113_S",
+  "head": {
+    "dayN": 3,
+    "brand": "오늘의 띠운세",
+    "handle": "@ttiunse.daily",
+    "md": "11.13",
+    "wd": "금",
+    "long": "11월 13일 (금)",
+    "ganji": "병오년"
+  },
+  "cards": [
+    {
+      "type": "story",
+      "clock": "06:00",
+      "kicker": "아침 6시 · 오늘 운세 도착",
+      "title": "오늘 1위는\n양띠",
+      "tti": {
+        "key": "양",
+        "hanja": "未",
+        "color": "#7d8a3f",
+        "idx": 7,
+        "score": 95,
+        "stars": 5,
+        "word": "행운",
+        "core": "뜻밖의 반가운 소식이 올 수 있어요",
+        "work": "가볍게 제안해 보면 반응이 좋아요",
+        "money": "작은 할인에 들뜨지 않으면 좋아요",
+        "relation": "오랜 친구가 떠오르면 연락해 봐요",
+        "action": "오랜 친구에게 안부 묻기",
+        "years": [
+          {
+            "year": 1979
+          },
+          {
+            "year": 1991
+          },
+          {
+            "year": 2003
+          }
+        ],
+        "colorName": "주황",
+        "lucky": {
+          "color": {
+            "name": "주황",
+            "hex": "#f0913a"
+          },
+          "item": "스티커",
+          "numbers": [
+            2,
+            7
+          ],
+          "direction": "서북쪽"
+        },
+        "rank": 1
+      },
+      "line": "양띠 행운의 색은 주황",
+      "next": "오늘 밤 9시 · 내일 띠 순위 공개"
+    }
+  ]
+}
