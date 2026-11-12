@@ -8,6 +8,8 @@ name: 오늘의 띠운세 특집 발행
 #   1월 1일·7월 1일    inbox/<1일>-half.json     상반기·하반기 띠별 운세 8장
 # 커밋 메시지에 [연습] 이 있으면 카드만 만들고 올리지 않는다.
 
+run-name: ${{ github.event_name == 'workflow_dispatch' && format('보충 {0} {1}', inputs.kind, inputs.date) || github.event.head_commit.message }}
+
 on:
   push:
     paths: ["inbox/*-weekly.json", "inbox/*-monthly.json", "inbox/*-weekend.json", "inbox/*-half.json", "inbox/*-theme.json"]

@@ -1,0 +1,69 @@
+name: 빠진 발행 보충
+
+# GitHub 장애·토큰 문제로 정해진 시각에 발행이 안 된 게시물을 찾아 다시 발행한다.
+# 매시간 돈다(GitHub 예약은 늦게 돌 수 있지만 보충용이라 괜찮다). published.txt 에 없는 것만 다시 실행하므로 중복 발행은 없다.
+#   아침  : 06:20 이후 inbox/<오늘>.go 가 있는데 TA<오늘>_1 이 발행 기록에 없으면 → publish.yml am
+#   밤    : 21:20 이후 inbox/<내일>.json 이 있는데 TP<내일> 이 없으면 → publish.yml pm (자정 넘으면 '내일 순위'가 의미 없어 건너뜀)
+#   특집  : 20:20 이후 오늘 올라온 inbox/*-<종류>.json 중 발행 기록이 없으면 → extra.yml
+# 같은 날 같은 게시물은 최대 3번까지만 다시 시도한다(계속 실패하면 사람 확인이 필요 — 실패 알림 이슈가 생긴다).
+
+on:
+  schedule:
+    - cron: "25 * * * *"
+  workflow_dispatch: {}
+
+permissions: { contents: read, actions: write }
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+
+      - name: 빠진 게시물 찾아 다시 실행
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -u
+          D=$(TZ=Asia/Seoul date +%F); N=$(TZ=Asia/Seoul date -d tomorrow +%F); HM=$(TZ=Asia/Seoul date +%H%M)
+          ymd() { echo "$1" | tr -d -; }
+          done_() { grep -q "^$1 " published.txt 2>/dev/null; }
+          tries() { gh run list --workflow "$1" --event workflow_dispatch --created ">=$(date -u +%F)" --json displayTitle --jq "[.[] | select(.displayTitle | contains(\"보충 $2\"))] | length" 2>/dev/null || echo 0; }
+          echo "지금 $D $HM (KST)"
+
+          # 아침
+          if [ "$HM" -ge 0620 ] && [ -f "inbox/$D.go" ] && [ -f "inbox/$D.json" ] && ! done_ "TA$(ymd $D)_1"; then
+            if [ "$(gh run list --workflow publish.yml --json status --jq '[.[] | select(.status != "completed")] | length')" = "0" ] && [ "$(tries publish.yml "$D am")" -lt 3 ]; then
+              echo "아침 $D 보충 발행"; gh workflow run publish.yml -f date="$D" -f mode=am -f publish=true
+            fi
+          fi
+
+          # 밤 (21:20~23:59)
+          if [ "$HM" -ge 2120 ] && [ -f "inbox/$N.json" ] && ! done_ "TP$(ymd $N)"; then
+            if [ "$(gh run list --workflow publish.yml --json status --jq '[.[] | select(.status != "completed")] | length')" = "0" ] && [ "$(tries publish.yml "$N pm")" -lt 3 ]; then
+              echo "밤 $N 보충 발행"; gh workflow run publish.yml -f date="$N" -f mode=pm -f publish=true
+            fi
+          fi
+
+          # 특집 (20:20~23:59)
+          if [ "$HM" -ge 2020 ]; then
+            for f in inbox/*-weekly.json inbox/*-monthly.json inbox/*-weekend.json inbox/*-half.json inbox/*-theme.json; do
+              [ -f "$f" ] || continue
+              b=$(basename "$f" .json); k=${b#*-*-*-}; fd=$(echo "$b" | cut -c1-10)
+              case "$k" in
+                weekly)  want=$(TZ=Asia/Seoul date -d "$D +1 day" +%F); id="TW$(ymd $fd)";;
+                monthly) want=$D; id="TM$(echo $fd | cut -c1-7 | tr -d -)";;
+                weekend) want=$D; id="TE$(ymd $fd)";;
+                theme)   want=$D; id="TT$(ymd $fd)";;
+                half)    want=$D; m=$(echo $fd | cut -c6-7); id="TH$(echo $fd | cut -c1-4)$([ "$m" = 01 ] && echo A || echo B)";;
+              esac
+              [ "$fd" = "$want" ] || continue
+              done_ "$id" && continue
+              if [ "$(tries extra.yml "$k $fd")" -lt 3 ]; then
+                echo "특집 $k $fd 보충 발행"; gh workflow run extra.yml -f kind="$k" -f date="$fd" -f publish=true
+              fi
+            done
+          fi
+          echo "확인 끝"
