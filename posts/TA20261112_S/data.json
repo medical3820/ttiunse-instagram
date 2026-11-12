@@ -1,0 +1,61 @@
+{
+  "id": "TA20261112_S",
+  "head": {
+    "dayN": 2,
+    "brand": "오늘의 띠운세",
+    "handle": "@ttiunse.daily",
+    "md": "11.12",
+    "wd": "목",
+    "long": "11월 12일 (목)",
+    "ganji": "병오년"
+  },
+  "cards": [
+    {
+      "type": "story",
+      "clock": "06:00",
+      "kicker": "아침 6시 · 오늘 운세 도착",
+      "title": "오늘 1위는\n뱀띠",
+      "tti": {
+        "key": "뱀",
+        "hanja": "巳",
+        "color": "#6b4f8f",
+        "idx": 5,
+        "score": 93,
+        "stars": 5,
+        "word": "통찰",
+        "core": "차분히 보면 답이 선명해지는 날이에요",
+        "work": "흩어진 자료를 한 장으로 요약해요",
+        "money": "정기 결제 내역을 한번 훑어봐요",
+        "relation": "깊은 대화가 마음을 가깝게 해요",
+        "action": "한 장으로 요약하기",
+        "years": [
+          {
+            "year": 1977
+          },
+          {
+            "year": 1989
+          },
+          {
+            "year": 2001
+          }
+        ],
+        "colorName": "보라",
+        "lucky": {
+          "color": {
+            "name": "보라",
+            "hex": "#7b5ea7"
+          },
+          "item": "노트",
+          "numbers": [
+            2,
+            9
+          ],
+          "direction": "서북쪽"
+        },
+        "rank": 1
+      },
+      "line": "뱀띠 행운의 색은 보라",
+      "next": "오늘 밤 9시 · 내일 띠 순위 공개"
+    }
+  ]
+}
