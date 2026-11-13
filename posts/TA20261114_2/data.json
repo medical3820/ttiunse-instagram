@@ -1,0 +1,301 @@
+{
+  "id": "TA20261114_2",
+  "head": {
+    "dayN": 4,
+    "brand": "오늘의 띠운세",
+    "handle": "@ttiunse.daily",
+    "md": "11.14",
+    "wd": "토",
+    "long": "11월 14일 (토)",
+    "ganji": "병오년"
+  },
+  "cards": [
+    {
+      "type": "cover",
+      "kicker": "오늘의 띠별 운세 ② 말~돼지띠",
+      "title": "오늘 내 띠는\n뭘 하면 좋을까?",
+      "sub": "느긋한 토요일, 천천히 즐겨요",
+      "box": "일·돈·관계 한 줄씩\n+ 오늘의 행동 하나",
+      "go": "내 띠는 넘겨서 확인",
+      "follow": "팔로우하고 내일의 한 줄도 만나세요."
+    },
+    {
+      "type": "tti",
+      "tti": {
+        "key": "말",
+        "hanja": "午",
+        "color": "#b8432f",
+        "idx": 6,
+        "score": 82,
+        "stars": 4,
+        "word": "나들이",
+        "core": "밖으로 나가면 기분이 환해져요",
+        "work": "할 일 목록은 세 줄만 적어요",
+        "money": "교통비는 걷기로 아껴 봐요",
+        "relation": "동행이 있으면 더 즐거워요",
+        "action": "가까운 곳 나들이",
+        "years": [
+          {
+            "year": 1978
+          },
+          {
+            "year": 1990
+          },
+          {
+            "year": 2002
+          }
+        ],
+        "colorName": "노랑",
+        "lucky": {
+          "color": {
+            "name": "노랑",
+            "hex": "#f2c94c"
+          },
+          "item": "향수",
+          "numbers": [
+            7,
+            9
+          ],
+          "direction": "북쪽"
+        },
+        "rank": 5
+      }
+    },
+    {
+      "type": "tti",
+      "tti": {
+        "key": "양",
+        "hanja": "未",
+        "color": "#7d8a3f",
+        "idx": 7,
+        "score": 75,
+        "stars": 3,
+        "word": "포근함",
+        "core": "포근한 하루를 보내기 좋아요",
+        "work": "정리 노트를 깨끗이 다시 써요",
+        "money": "집에 있는 물건부터 써 봐요",
+        "relation": "다정한 말이 마음을 데워 줘요",
+        "action": "이불 빨래하기",
+        "years": [
+          {
+            "year": 1979
+          },
+          {
+            "year": 1991
+          },
+          {
+            "year": 2003
+          }
+        ],
+        "colorName": "흰색",
+        "lucky": {
+          "color": {
+            "name": "흰색",
+            "hex": "#ffffff"
+          },
+          "item": "엽서",
+          "numbers": [
+            6,
+            7
+          ],
+          "direction": "서쪽"
+        },
+        "rank": 7
+      }
+    },
+    {
+      "type": "tti",
+      "tti": {
+        "key": "원숭이",
+        "hanja": "申",
+        "color": "#c08a1e",
+        "idx": 8,
+        "score": 97,
+        "stars": 5,
+        "word": "유쾌",
+        "core": "웃음이 번져 분위기가 좋아져요",
+        "work": "재밌는 방식으로 공부해 봐요",
+        "money": "작은 즐거움엔 여유를 두세요",
+        "relation": "농담 한마디가 거리를 좁혀요",
+        "action": "친구에게 웃긴 얘기하기",
+        "years": [
+          {
+            "year": 1980
+          },
+          {
+            "year": 1992
+          },
+          {
+            "year": 2004
+          }
+        ],
+        "colorName": "보라",
+        "lucky": {
+          "color": {
+            "name": "보라",
+            "hex": "#7b5ea7"
+          },
+          "item": "팔찌",
+          "numbers": [
+            1,
+            9
+          ],
+          "direction": "서북쪽"
+        },
+        "rank": 1
+      }
+    },
+    {
+      "type": "tti",
+      "tti": {
+        "key": "닭",
+        "hanja": "酉",
+        "color": "#a6452f",
+        "idx": 9,
+        "score": 68,
+        "stars": 3,
+        "word": "요리",
+        "core": "손수 만든 한 끼가 힘이 돼요",
+        "work": "레시피를 따라 천천히 해봐요",
+        "money": "장 볼 목록을 먼저 적어 보세요",
+        "relation": "함께 먹으면 정이 깊어져요",
+        "action": "간단한 요리 해보기",
+        "years": [
+          {
+            "year": 1981
+          },
+          {
+            "year": 1993
+          },
+          {
+            "year": 2005
+          }
+        ],
+        "colorName": "와인",
+        "lucky": {
+          "color": {
+            "name": "와인",
+            "hex": "#6d1f3a"
+          },
+          "item": "운동화",
+          "numbers": [
+            5,
+            6
+          ],
+          "direction": "남쪽"
+        },
+        "rank": 10
+      }
+    },
+    {
+      "type": "tti",
+      "tti": {
+        "key": "개",
+        "hanja": "戌",
+        "color": "#5e6b74",
+        "idx": 10,
+        "score": 88,
+        "stars": 4,
+        "word": "만남",
+        "core": "반가운 얼굴을 만나기 좋아요",
+        "work": "혼자 끙끙대지 말고 물어봐요",
+        "money": "더치페이는 깔끔하게 해요",
+        "relation": "마음을 표현하면 가까워져요",
+        "action": "보고 싶던 사람께 연락",
+        "years": [
+          {
+            "year": 1982
+          },
+          {
+            "year": 1994
+          },
+          {
+            "year": 2006
+          }
+        ],
+        "colorName": "카키",
+        "lucky": {
+          "color": {
+            "name": "카키",
+            "hex": "#7a7a52"
+          },
+          "item": "마스크",
+          "numbers": [
+            3,
+            4
+          ],
+          "direction": "서북쪽"
+        },
+        "rank": 3
+      }
+    },
+    {
+      "type": "tti",
+      "tti": {
+        "key": "돼지",
+        "hanja": "亥",
+        "color": "#3d6f8f",
+        "idx": 11,
+        "score": 73,
+        "stars": 3,
+        "word": "낮잠",
+        "core": "푹 쉬는 것도 큰일이에요",
+        "work": "일은 잠시 내려놓아도 돼요",
+        "money": "오늘은 집밥으로 아껴 봐요",
+        "relation": "편한 사람과 수다가 좋아요",
+        "action": "낮잠 20분 자기",
+        "years": [
+          {
+            "year": 1983
+          },
+          {
+            "year": 1995
+          },
+          {
+            "year": 2007
+          }
+        ],
+        "colorName": "분홍",
+        "lucky": {
+          "color": {
+            "name": "분홍",
+            "hex": "#f19bb5"
+          },
+          "item": "볼펜",
+          "numbers": [
+            1,
+            2
+          ],
+          "direction": "서쪽"
+        },
+        "rank": 8
+      }
+    },
+    {
+      "type": "outro",
+      "cheer": "주말엔 **하고 싶은 것 하나만** 골라 즐겨 보세요.",
+      "share": "오늘 띠 카드는 **저장해 두고** 가까운 사람에게 보내 보세요.",
+      "title": "팔로우하면\n매일 받는 것",
+      "perks": [
+        [
+          "아침 6시",
+          "띠별 일·돈·관계 운세"
+        ],
+        [
+          "밤 9시",
+          "내일 띠 순위 미리보기"
+        ],
+        [
+          "매일",
+          "바뀌는 행운의 색·물건·숫자"
+        ],
+        [
+          "1분",
+          "출근길에 넘겨 보면 끝"
+        ]
+      ],
+      "teaser": "쥐띠~뱀띠는 이전 게시물에 있어요",
+      "box": "오늘 밤 9시\n내일 순위 공개"
+    }
+  ]
+}

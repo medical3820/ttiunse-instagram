@@ -1,0 +1,61 @@
+{
+  "id": "TA20261114_S",
+  "head": {
+    "dayN": 4,
+    "brand": "오늘의 띠운세",
+    "handle": "@ttiunse.daily",
+    "md": "11.14",
+    "wd": "토",
+    "long": "11월 14일 (토)",
+    "ganji": "병오년"
+  },
+  "cards": [
+    {
+      "type": "story",
+      "clock": "06:00",
+      "kicker": "아침 6시 · 오늘 운세 도착",
+      "title": "오늘 1위는\n원숭이띠",
+      "tti": {
+        "key": "원숭이",
+        "hanja": "申",
+        "color": "#c08a1e",
+        "idx": 8,
+        "score": 97,
+        "stars": 5,
+        "word": "유쾌",
+        "core": "웃음이 번져 분위기가 좋아져요",
+        "work": "재밌는 방식으로 공부해 봐요",
+        "money": "작은 즐거움엔 여유를 두세요",
+        "relation": "농담 한마디가 거리를 좁혀요",
+        "action": "친구에게 웃긴 얘기하기",
+        "years": [
+          {
+            "year": 1980
+          },
+          {
+            "year": 1992
+          },
+          {
+            "year": 2004
+          }
+        ],
+        "colorName": "보라",
+        "lucky": {
+          "color": {
+            "name": "보라",
+            "hex": "#7b5ea7"
+          },
+          "item": "팔찌",
+          "numbers": [
+            1,
+            9
+          ],
+          "direction": "서북쪽"
+        },
+        "rank": 1
+      },
+      "line": "원숭이띠 행운의 색은 보라",
+      "next": "오늘 밤 9시 · 내일 띠 순위 공개"
+    }
+  ]
+}
