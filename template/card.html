@@ -46,21 +46,28 @@
 
   /* 표지 */
   /* 표지: 크림 바탕 + 큰 질문형 제목 + 노란 상자 속 토끼 (원장님 시안 2026-11-10) */
-  .cover{background:#fbf7ee}
+  /* 매일 표지 (원장님 요청 2026-11-13): 요일마다 바탕색이 바뀌고 날짜를 아주 크게 — 피드에서 날짜 구분 */
+  .cover{background:var(--day);--day:#ffd43b;--day2:#fff3bf}
   .cover::before{display:none}
-  .cover .in{padding:6.4cqw 6.8cqw 5.4cqw}
-  .cover .top{font-size:3.6cqw;color:var(--ink)} .cover .top b{font-family:Jua,var(--f);font-weight:400;font-size:5.4cqw;letter-spacing:0}
-  .cover .kick{margin-top:5cqw;display:flex;align-items:center;gap:2cqw;font-size:4.2cqw;font-weight:900;color:#2f6fd6}
-  .cover .kick .dayn{font-size:2.8cqw;color:#2f6fd6;border:.3cqw solid #2f6fd6;border-radius:5cqw;padding:.4cqw 1.8cqw}
-  .cover h1{font-size:11.4cqw;font-weight:900;line-height:1.14;letter-spacing:-.06em;margin:2.4cqw 0 0;white-space:pre-line;color:#141210}
-  .cover .sub{font-size:3.3cqw;color:var(--dim);font-weight:800;margin-top:2.2cqw;margin-bottom:7cqw}
-  .cover .box{margin-top:auto;position:relative;background:#f9d65c;border:.5cqw solid #1f1b18;border-radius:2cqw;min-height:25cqw;display:flex;align-items:center;justify-content:flex-end;padding:3cqw 4.6cqw}
-  .cover .box .bn{position:absolute;left:1.6cqw;bottom:-.5cqw;width:26cqw;height:26cqw}
+  .cover .in{padding:5.6cqw 6.4cqw 5cqw}
+  .cover .top{font-size:3.4cqw;color:#1a1416}
+  .cover .top b{font-family:Jua,var(--f);font-weight:400;font-size:5cqw;letter-spacing:0;background:#fff;border:.45cqw solid #1a1416;border-radius:3cqw;padding:.3cqw 2.4cqw}
+  .cover .top .dayn{font-weight:800;background:#1a1416;color:#fff;border-radius:3cqw;padding:.6cqw 2.2cqw}
+  .cover .date{margin-top:2.2cqw;display:flex;align-items:flex-end;gap:2.6cqw}
+  .cover .date .d{font-family:Jua,var(--f);font-size:28cqw;line-height:.86;white-space:nowrap;color:#fff;letter-spacing:-.02em;
+    text-shadow:.7cqw .7cqw 0 #1a1416,-.7cqw .7cqw 0 #1a1416,.7cqw -.7cqw 0 #1a1416,-.7cqw -.7cqw 0 #1a1416,.9cqw 0 0 #1a1416,-.9cqw 0 0 #1a1416,0 .9cqw 0 #1a1416,0 -.9cqw 0 #1a1416,1.6cqw 1.8cqw 0 #1a1416}
+  .cover .date .d .pt{display:inline-block;width:4.6cqw;height:4.6cqw;margin:0 1cqw;border-radius:50%;background:#fff;vertical-align:.4cqw;box-shadow:0 0 0 .8cqw #1a1416,1.4cqw 1.6cqw 0 .8cqw #1a1416}
+  .cover .date .w{margin-bottom:2.4cqw;font-family:Jua,var(--f);font-size:7cqw;line-height:1;background:#1a1416;color:var(--day2);border-radius:2cqw;padding:1.4cqw 2.4cqw}
+  .cover .kick{margin-top:3.6cqw;align-self:flex-start;font-size:4cqw;font-weight:800;color:#1a1416;background:#fff;border:.45cqw solid #1a1416;border-radius:2cqw;padding:.8cqw 2.6cqw}
+  .cover h1{font-size:8.6cqw;font-weight:800;line-height:1.18;letter-spacing:-.05em;margin:2.6cqw 0 0;white-space:pre-line;color:#141210}
+  .cover .sub{font-size:3.4cqw;color:#2b2520;font-weight:700;margin-top:1.6cqw;margin-bottom:1.6cqw}
+  .cover .box{margin-top:auto;position:relative;background:#fff;border:.5cqw solid #1f1b18;border-radius:2cqw;min-height:20cqw;display:flex;align-items:center;justify-content:flex-end;padding:2.4cqw 4.2cqw;box-shadow:1.2cqw 1.2cqw 0 #1a1416}
+  .cover .box .bn{position:absolute;left:1.6cqw;bottom:-.5cqw;width:21cqw;height:21cqw}
   .cover .box .bn svg{width:100%;height:100%}
-  .cover .box .bt{font-family:Jua,var(--f);font-size:7.4cqw;line-height:1.25;text-align:right;white-space:pre-line;color:#1f1b18}
-  .cover .go{margin-top:3cqw;text-align:center;font-size:4.4cqw;font-weight:900}
-  .cover .go b{color:#2f6fd6}
-  .cover .rule{margin-top:2.4cqw;border-top:.4cqw solid #1f1b18;padding-top:2.6cqw;text-align:center;font-size:3.6cqw;font-weight:800}
+  .cover .box .bt{font-family:Jua,var(--f);font-size:6.2cqw;line-height:1.25;text-align:right;white-space:pre-line;color:#1f1b18}
+  .cover .go{margin-top:3.4cqw;text-align:center;font-size:4.2cqw;font-weight:800}
+  .cover .go b{color:#1a1416}
+  .cover .rule{margin-top:2cqw;border-top:.4cqw solid #1f1b18;padding-top:2.2cqw;text-align:center;font-size:3.4cqw;font-weight:700}
   .cover .wm,.story .wm{position:absolute;right:-6cqw;top:16cqw;font-size:62cqw;line-height:1;color:rgba(255,255,255,.035);font-family:"Noto Serif CJK KR",serif;font-weight:900;pointer-events:none}
 
   /* 띠 상세 */
@@ -295,8 +302,11 @@
   const html = data.cards.map((c, k) => {
     const i = k + 1;
     if (c.type === "cover") {
-      return `<section class="card cover"><div class="in"><div class="top"><b>띠운세</b><span>${H.long}</span></div>
-        <div class="kick">${esc(c.kicker)}<span class="dayn">${H.dayN}일째</span></div>
+      // 요일별 바탕색 (월 주황 · 화 노랑 · 수 초록 · 목 하늘 · 금 보라 · 토 민트 · 일 분홍)
+      const DAY = { 월: ["#ffa94d", "#fff4e6"], 화: ["#ffd43b", "#fff9db"], 수: ["#8ce99a", "#ebfbee"], 목: ["#74c0fc", "#e7f5ff"], 금: ["#b197fc", "#f3f0ff"], 토: ["#63e6be", "#e6fcf5"], 일: ["#faa2c1", "#fff0f6"] }[H.wd] || ["#ffd43b", "#fff9db"];
+      return `<section class="card cover" style="--day:${DAY[0]};--day2:${DAY[1]}"><div class="in"><div class="top"><b>띠운세</b><span class="dayn">${H.dayN}일째</span></div>
+        <div class="date"><span class="d num">${H.md.split(".")[0]}<i class="pt"></i>${H.md.split(".")[1]}</span><span class="w">${H.wd}요일</span></div>
+        <div class="kick">${esc(c.kicker)}</div>
         <h1>${esc(c.title)}</h1><div class="sub">${esc(c.sub)}</div>
         <div class="box"><div class="bn">${window.bunny ? bunny("list") : ""}</div><div class="bt">${esc(c.box)}</div></div>
         <div class="go">${esc(c.go)} <b>→</b></div>

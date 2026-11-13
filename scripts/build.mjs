@@ -109,7 +109,7 @@ const kw = (part) => part.map((r) => `${r.key}띠 운세`).join(" · ");
 if (mode === "pm") {
   const top = rank.slice(0, 3).map((r) => `${r.key}띠`).join("·");
   const cards = [
-    { type: "cover", kicker: "매일 밤 9시, 내일 순위 먼저", title: `내일 운 좋은 띠\n1위는\n${rank[0].key}띠!`, sub: `${D.long} · 12띠 순위와 행운의 색·물건`, box: "12띠 순위\n+ 행운의 색·물건", go: "내 띠 순위는 넘겨서 확인", follow: "팔로우하고 아침 6시 띠별 상세 운세도 받으세요." },
+    { type: "cover", kicker: "내일의 띠별 운세 순위", title: `내일 운 좋은 띠\n1위는 ${rank[0].key}띠!`, sub: "12띠 순위와 행운의 색·물건을 미리 확인하세요", box: "12띠 순위\n+ 행운의 색·물건", go: "내 띠 순위는 넘겨서 확인", follow: "팔로우하고 아침 6시 띠별 상세 운세도 받으세요." },
     { type: "rank", title: "띠별 운세 순위 1~6위", list: rank.slice(0, 6) },
     { type: "rank", title: "띠별 운세 순위 7~12위", list: rank.slice(6) },
     { type: "lucky", title: "띠별 행운의 색·물건", list: rows },
@@ -130,7 +130,7 @@ ${rank[0].key}띠`, tti: rank[0], line: "내 띠는 몇 위? 피드에서 확인
     const no = k + 1, mark = "①②"[k];
     const names = part.map((r) => `${r.key}띠`).join("·");
     const cards = [
-      { type: "cover", kicker: `오늘의 띠별 운세 ${mark} ${part[0].key}~${part[5].key}띠`, title: "오늘 내 띠는\n뭘 하면\n좋을까?", sub: inbox.mood, box: "일·돈·관계 한 줄씩\n+ 오늘의 행동 하나", go: "내 띠는 넘겨서 확인", follow: "팔로우하고 내일의 한 줄도 만나세요." },
+      { type: "cover", kicker: `오늘의 띠별 운세 ${mark} ${part[0].key}~${part[5].key}띠`, title: "오늘 내 띠는\n뭘 하면 좋을까?", sub: inbox.mood, box: "일·돈·관계 한 줄씩\n+ 오늘의 행동 하나", go: "내 띠는 넘겨서 확인", follow: "팔로우하고 내일의 한 줄도 만나세요." },
       ...part.map((r) => ({ type: "tti", tti: r })),
       { type: "outro", cheer: inbox.cheer, share: inbox.share, title: "팔로우하면\n매일 받는 것", perks: PERKS, teaser: k === 0 ? "말띠~돼지띠는 다음 게시물에 있어요" : "쥐띠~뱀띠는 이전 게시물에 있어요", box: "오늘 밤 9시\n내일 순위 공개" },
     ];
