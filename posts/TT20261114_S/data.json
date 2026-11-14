@@ -1,0 +1,19 @@
+{
+  "id": "TT20261114_S",
+  "head": {
+    "handle": "@ttiunse.daily",
+    "brand": "오늘의 띠운세",
+    "long": "11월 14일 (토)"
+  },
+  "cards": [
+    {
+      "type": "tcover",
+      "hand": "@@썸 타는 친구 소환!!",
+      "l1": "2027 띠별",
+      "l2": "연애운",
+      "l3": "좋아지는 달",
+      "bg": "dots",
+      "color": "pink"
+    }
+  ]
+}
