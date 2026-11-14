@@ -1,0 +1,61 @@
+{
+  "id": "TP20261115_S",
+  "head": {
+    "dayN": 5,
+    "brand": "오늘의 띠운세",
+    "handle": "@ttiunse.daily",
+    "md": "11.15",
+    "wd": "일",
+    "long": "11월 15일 (일)",
+    "ganji": "병오년"
+  },
+  "cards": [
+    {
+      "type": "story",
+      "clock": "21:00",
+      "kicker": "밤 9시 · 내일 순위 도착",
+      "title": "내일 1위는\n토끼띠",
+      "tti": {
+        "key": "토끼",
+        "hanja": "卯",
+        "color": "#b0577a",
+        "idx": 3,
+        "score": 95,
+        "stars": 5,
+        "word": "미소",
+        "core": "웃는 얼굴이 좋은 흐름을 데려와요",
+        "work": "주변 도움으로 막힌 일이 풀려요",
+        "money": "작은 선물은 마음이 담기면 충분해요",
+        "relation": "다정한 한마디가 크게 전해져요",
+        "action": "거울 보고 웃어 보기",
+        "years": [
+          {
+            "year": 1975
+          },
+          {
+            "year": 1987
+          },
+          {
+            "year": 1999
+          }
+        ],
+        "colorName": "분홍",
+        "lucky": {
+          "color": {
+            "name": "분홍",
+            "hex": "#f19bb5"
+          },
+          "item": "작은 화분",
+          "numbers": [
+            5,
+            7
+          ],
+          "direction": "서남쪽"
+        },
+        "rank": 1
+      },
+      "line": "내 띠는 몇 위? 피드에서 확인",
+      "next": "내일 아침 6시 · 띠별 상세 운세"
+    }
+  ]
+}
