@@ -7,9 +7,10 @@ name: 빠진 발행 보충
 #   특집  : 20:20 이후 오늘 올라온 inbox/*-<종류>.json 중 발행 기록이 없으면 → extra.yml
 # 같은 날 같은 게시물은 최대 3번까지만 다시 시도한다(계속 실패하면 사람 확인이 필요 — 실패 알림 이슈가 생긴다).
 
+# 2026-11-16 원장님 요청으로 프로젝트 중단 — 매시간 자동 실행 끔(다시 켜려면 아래 schedule 주석 해제)
 on:
-  schedule:
-    - cron: "25 * * * *"
+  # schedule:
+  #   - cron: "25 * * * *"
   workflow_dispatch: {}
 
 permissions: { contents: read, actions: write }
